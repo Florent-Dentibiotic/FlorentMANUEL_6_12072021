@@ -1,0 +1,19 @@
+{
+  "name": "florentmanuel_6_12072021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/style.scss:./style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Florent-Dentibiotic/FlorentMANUEL_6_12072021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Florent-Dentibiotic/FlorentMANUEL_6_12072021/issues"
+  },
+  "homepage": "https://github.com/Florent-Dentibiotic/FlorentMANUEL_6_12072021#readme"
+}
