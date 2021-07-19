@@ -1,16 +1,10 @@
-main{
-    display: flex;
-    flex-wrap: wrap;
-    h1{
-        position: absolute;
-        right: 2rem;
-        top: 2rem;
+.photographers{
+    display: grid;
+    grid-template-columns: 
+    repeat(auto-fill,
+    minmax(480px, auto));
+    article{
+        background-color: lightblue;
     }
 }
 
-.photographers{
-    width: 1440px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}

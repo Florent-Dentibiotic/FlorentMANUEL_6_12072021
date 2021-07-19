@@ -1,6 +1,8 @@
 /* colors */
 body {
   position: relative;
+  max-width: 1440px;
+  margin: auto;
 }
 
 h1 {
@@ -28,6 +30,9 @@ h1 {
 
 article {
   text-align: center;
+}
+article a {
+  text-decoration: none;
 }
 article h2 {
   font-size: 36px;
@@ -71,9 +76,10 @@ article li {
 }
 
 .header {
-  width: 70%;
   padding: 2rem;
   display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 .header__nav {
   width: 700px;
@@ -84,6 +90,8 @@ article li {
 }
 .header__nav:hover .btn__secondary {
   display: block;
+  position: absolute;
+  top: 1em;
 }
 .header__nav__tags {
   list-style: none;
@@ -101,21 +109,12 @@ article li {
   border-radius: 11px;
 }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-}
-main h1 {
-  position: absolute;
-  right: 2rem;
-  top: 2rem;
-}
-
 .photographers {
-  width: 1440px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, auto));
+}
+.photographers article {
+  background-color: lightblue;
 }
 
 /*# sourceMappingURL=style.css.map */
