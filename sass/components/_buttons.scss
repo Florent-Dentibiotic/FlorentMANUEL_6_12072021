@@ -8,4 +8,18 @@
         border: none;
         display: none;
     }
+    &__primary{
+        background-color: $primary;
+        color: $white;
+        width: 170px;
+        height: 69px;
+        font-weight: 700;
+        border-radius: 5px;
+        border: none;
+        text-align: center;
+        &:hover{
+            background-color: $secondary;
+            color: $black;
+        }
+    }
 }
