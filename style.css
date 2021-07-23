@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* colors */
 body {
   position: relative;
@@ -5,9 +6,8 @@ body {
   margin: auto;
 }
 
-h1 {
-  color: #901C1C;
-  font-size: 36px;
+body {
+  font-family: "DM Sans", sans-serif;
 }
 
 .btn__secondary {
@@ -25,6 +25,7 @@ h1 {
   width: 170px;
   height: 69px;
   font-weight: 700;
+  font-size: 20px;
   border-radius: 5px;
   border: none;
   text-align: center;
@@ -34,61 +35,64 @@ h1 {
   color: #000;
 }
 
-.portrait {
+.autors article {
+  text-align: center;
+}
+.autors article a {
+  text-decoration: none;
+}
+.autors article img {
   border-radius: 50%;
   width: 250px;
   height: 250px;
   object-fit: cover;
   padding: 2rem;
 }
-
-.photographers article {
-  text-align: center;
-}
-.photographers article a {
-  text-decoration: none;
-}
-.photographers article h2 {
+.autors article h2 {
   font-size: 36px;
   color: #D3573C;
   font-weight: 400;
 }
-.photographers article h3 {
+.autors article h3 {
   font-size: 13px;
   color: #D3573C;
   font-weight: 400;
   line-height: 17px;
 }
-.photographers article h4 {
+.autors article h4 {
   font-size: 10px;
   font-weight: 400;
   line-height: 13px;
 }
-.photographers article p {
+.autors article p {
   font-size: 9px;
   color: #525252;
   font-weight: 400;
 }
-.photographers article ul {
+.autors article ul {
   list-style: none;
   display: flex;
   justify-content: center;
   padding-left: 0;
 }
-.photographers article li {
-  font-size: 12px;
+.autors article li {
+  font-size: 18px;
   color: #901C1C;
-  margin: 0.5em;
-  padding: 0.3em;
-  border: 0.5px solid #525252;
+  padding: 0.1em 0.3em;
   box-sizing: border-box;
-  border-radius: 11px;
+  border: 0.5px solid #525252;
+  border-radius: 15px;
+  text-decoration: none;
+  margin-right: 0.5em;
+}
+.autors article li:hover {
+  color: #fff;
+  background-color: #901C1C;
 }
 
 .tag {
   font-size: 12px;
   color: #901C1C;
-  margin: 0.5em;
   padding: 0.3em;
   box-sizing: border-box;
   border: 0.5px solid #525252;
@@ -127,19 +131,21 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
+.header h1 {
+  color: #901C1C;
+  font-size: 36px;
+}
 
-.photographers {
+.autors {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(480px, auto));
-}
-.photographers article {
-  background-color: lightblue;
 }
 
 .intro {
   display: flex;
   justify-content: space-between;
   background-color: #FAFAFA;
+  padding: 0 50px;
 }
 .intro img {
   border-radius: 50%;
@@ -151,8 +157,99 @@ h1 {
 .intro ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding-left: 0;
+}
+.intro li {
+  font-size: 18px;
+  color: #901C1C;
+  padding: 0.1em 0.3em;
+  box-sizing: border-box;
+  border: 0.5px solid #525252;
+  border-radius: 15px;
+  text-decoration: none;
+  margin-right: 0.5em;
+}
+.intro li:hover {
+  color: #fff;
+  background-color: #901C1C;
+}
+.intro h1 {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 31, 25px;
+  color: #D3573C;
+  margin-bottom: 0;
+}
+.intro h2 {
+  font-size: 24px;
+  color: #901C1C;
+  margin: 0;
+}
+
+.contact {
+  width: 30%;
+  padding-top: 63px;
+}
+
+.classify {
+  margin: 2em;
+}
+.classify label {
+  font-size: 18px;
+  margin-right: 1em;
+}
+.classify select {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #901C1C;
+  border: none;
+  border-radius: 5px;
+  padding: 1em;
+  width: 170px;
+  -webkit-box-sizing: border-box;
+  /* Pour les anciennes versions des navigateurs WebKit */
+  -moz-box-sizing: border-box;
+  /* Pour tous les navigateurs Gecko */
+  box-sizing: border-box;
+}
+.classify option {
+  height: 170px;
+  -webkit-appearance: none;
+  /* Pour avoir le contrôle de l'apparence sur WebKit/Chromium */
+  -moz-appearance: none;
+}
+
+.photos {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, auto));
+}
+.photos article {
+  max-width: 480px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.photos article .img-label {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: #901C1C;
+  max-width: 440px;
+}
+.photos article .img-label .fas {
+  margin-top: 1.5em;
+}
+.photos img {
+  width: 440px;
+  height: 440px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=style.css.map */
