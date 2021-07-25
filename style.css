@@ -240,7 +240,7 @@ body {
   font-size: 20px;
   font-weight: 400;
   color: #901C1C;
-  max-width: 440px;
+  width: 440px;
 }
 .photos img {
   width: 440px;

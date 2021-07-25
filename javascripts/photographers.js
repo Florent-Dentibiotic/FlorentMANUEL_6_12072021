@@ -56,51 +56,43 @@ function addPictures(jsonObj){
     const thisPhotographe = photographes[found];
 
     for (var i = 0; i < foundPictures.length; i++) {
+
+        let newArticle = document.createElement('article');
+        photos.appendChild(newArticle);
+
         //IF ITS A VIDEO
         if(foundPictures[i].image === undefined){
-            let newArticle = document.createElement('article');
-            photos.appendChild(newArticle);
             let newVideo = document.createElement('video');
             newArticle.appendChild(newVideo);
             let newSource = document.createElement('source');
             newVideo.appendChild(newSource);
-            let newDiv = document.createElement('div');
-            newArticle.appendChild(newDiv);
-            let newH3 = document.createElement('h3');
-            newDiv.appendChild(newH3);
-            let newH3bis = document.createElement('h3');
-            newDiv.appendChild(newH3bis);
-            let newI = document.createElement('i');
-            newH3bis.appendChild(newI);
 
-            // FOR EACH PHOTOGRAPHERS DISPLAYING ALL INFORMATIONS
-            newDiv.classList.add('img-label');
             newVideo.setAttribute("controls", "");
             newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
             newSource.setAttribute("video", "video/mp4");
-            newH3.textContent = foundPictures[i].title;
-            newI.classList.add('fas');
-            newI.classList.add('fa-heart');
 
         //ELSE IF ITS A PHOTO
         } else {
-            let newArticle = document.createElement('article');
-            photos.appendChild(newArticle);
             let newImage = document.createElement('img');
             newArticle.appendChild(newImage);
-            let newDiv = document.createElement('div');
-            newArticle.appendChild(newDiv);
-            let newH3 = document.createElement('h3');
-            newDiv.appendChild(newH3);
-            let newI = document.createElement('i');
-            newDiv.appendChild(newI);
 
-            // FOR EACH PHOTOGRAPHERS DISPLAYING ALL INFORMATIONS
-            newDiv.classList.add('img-label');
             newImage.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].image));
-            newH3.textContent = foundPictures[i].title;
-            newI.classList.add('fas');
-            newI.classList.add('fa-heart');
         }
+
+        let newDiv = document.createElement('div');
+        newArticle.appendChild(newDiv);
+        let newH3 = document.createElement('h3');
+        newDiv.appendChild(newH3);
+        let newH3bis = document.createElement('h3');
+        newDiv.appendChild(newH3bis);
+        // FOR EACH PHOTOGRAPHERS DISPLAYING ALL INFORMATIONS
+        newDiv.classList.add('img-label');
+        newH3.textContent = foundPictures[i].title;
+        newH3bis.textContent = foundPictures[i].likes + " ";
+
+        let newI = document.createElement('i');
+        newH3bis.appendChild(newI);
+        newI.classList.add('fas');
+        newI.classList.add('fa-heart');
     }
 }
