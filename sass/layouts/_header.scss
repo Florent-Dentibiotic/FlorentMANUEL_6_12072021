@@ -1,6 +1,7 @@
 .header{
     padding: 2rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
     &__nav{
@@ -19,11 +20,38 @@
         &__tags{
             list-style: none;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
         }
     }
     h1{
         color: $primary;
         font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header{
+        padding: 10px;
+        flex-wrap: wrap;
+        &__nav{
+            max-width: 768px;
+            order: 3;
+            &:hover{
+                .btn__secondary{
+                    display: none
+                }
+            }
+            &__tags{
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                padding-left: 0;
+                height: 60px;
+            }
+        }
+        h1{
+            order: 2;
+            font-size: 14px;
+        }
     }
 }

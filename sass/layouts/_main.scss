@@ -5,3 +5,11 @@
     minmax(480px, auto));
 }
 
+@media screen and (max-width: 768px) {
+    .autors{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
