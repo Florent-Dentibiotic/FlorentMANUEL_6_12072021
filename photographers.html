@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Florent M.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/39de71c5f7.js" crossorigin="anonymous"></script>
+    <title>Fisheye</title>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html"><img class="logo" src="imgs/logo.png" alt="Fisheye Home Page"></a>
+    </header>
+
+    <main>
+
+        <section class="intro">
+            <article class="presentation">
+                
+            </article>
+            <div class="contact">
+                <a class="btn__primary intro__contact" href="mailto:mimikeel@gmail.com"><button class="btn__primary">Contactez-moi</button></a>
+            </div>
+            <img class="intro__picture">
+        </section>
+        <section class="classify">
+            <label for="sort-by">Trier par</label>
+            <select name="sort-pictures" id="sort-by">
+                <option value="popularity">Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Titre</option>
+            </select>
+        </section>
+
+        <section class="photos">
+
+        </section>
+
+    </main>
+    <script src="fisheye.js"></script>
+    <script src="./javascripts/photographers.js"></script>
+</body>
+</html>
