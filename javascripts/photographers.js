@@ -40,7 +40,10 @@ function createIntro(jsonObj) {
     thisPhotographe.tags.forEach(element => {
         let newLi = document.createElement('li');
         newUl.appendChild(newLi);
-        newLi.textContent = "#" + element;
+        let newA = document.createElement('a');
+        newLi.appendChild(newA);
+        newA.textContent = "#" + element;
+        newA.setAttribute("href", ('index.html?' + element));
     });
     //PHOTOGRAPHER PORTRAIT
     picture.setAttribute("src", ("./imgs/Sample Photos/Photographers ID Photos/" + thisPhotographe.portrait));

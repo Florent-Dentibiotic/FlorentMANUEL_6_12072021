@@ -17,7 +17,6 @@
     }
     li{
         font-size: 18px; 
-        color: $primary;
         padding: .1em .3em;
         box-sizing: border-box;
         border: .5px solid $grey;
@@ -40,6 +39,13 @@
         font-size: 24px;
         color: $primary;
         margin: 0;
+    }
+    a{
+        text-decoration: none;
+        color: $primary;
+        &:hover{
+            color: $white;
+        }
     }
 }
 

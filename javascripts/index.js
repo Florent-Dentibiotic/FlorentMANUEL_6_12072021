@@ -1,5 +1,3 @@
-const tags = document.querySelectorAll('.tag');
-
 //CALL FUNTION NEW ARTICLE WHEN LOAD
 request.onload = function() {
     var fishEyeData = request.response;
@@ -8,8 +6,13 @@ request.onload = function() {
 
 // FUNCTION FOR EACH ARTIST TO CREATE A NEW ARTICLE WITH ALL INFOS
 function createArticle(jsonObj) {
-
-    let photographes = jsonObj['photographers'];
+    let allPhotographes = jsonObj['photographers'];
+    let photographes = allPhotographes;
+    // ID EXTRACTION
+    const index_url_id = window.location.search.slice(1);
+    if(index_url_id != ""){
+      photographes = allPhotographes.filter(element => element.tags.includes(index_url_id))
+    } 
 
     for (var i = 0; i < photographes.length; i++) {
         let newArticle = document.createElement('article');
@@ -41,12 +44,13 @@ function createArticle(jsonObj) {
             let newLi = document.createElement('li');
             newUl.appendChild(newLi);
             newLi.textContent = "#" + element;
+            newLi.classList.add('tag');
         });
     }
+    // EVENT LISTENER FOR TAGS
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(element => element.addEventListener("click", classifyFromTag));
   }
-
-// EVENT LISTENER FOR TAGS
-tags.forEach(element => element.addEventListener("click", classifyFromTag));
 
 // TAG SELECTION OF AUTORS
 function classifyFromTag(){
