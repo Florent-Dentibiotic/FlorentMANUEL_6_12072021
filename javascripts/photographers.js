@@ -1,5 +1,7 @@
 // ID EXTRACTION
 const url_id = window.location.search.slice(1);
+
+// DOM ELEMENTS
 const intro = document.querySelector('.intro');
 const presentation = document.querySelector('.presentation');
 const picture = document.querySelector('.intro__picture');
@@ -48,7 +50,6 @@ function createIntro(jsonObj) {
 function addPictures(jsonObj){
     let media = jsonObj['media'];
     const foundPictures = media.filter(element => element.photographerId == url_id);
-    console.log(foundPictures);
 
     //FINDING THE GOOD PHOTOGRAPHER WITH IS ID
     let photographes = jsonObj['photographers'];
@@ -69,6 +70,7 @@ function addPictures(jsonObj){
 
             newVideo.setAttribute("controls", "");
             newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
+            newSource.setAttribute("poster", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].poster));
             newSource.setAttribute("video", "video/mp4");
 
         //ELSE IF ITS A PHOTO

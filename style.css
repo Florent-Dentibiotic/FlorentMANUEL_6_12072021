@@ -356,6 +356,7 @@ body {
 }
 .photos Video {
   width: 440px;
+  height: 440px;
   object-fit: cover;
 }
 
@@ -419,6 +420,10 @@ body {
 @media screen and (max-width: 375px) {
   .intro article {
     max-width: 200px;
+  }
+
+  .classify {
+    display: none;
   }
 }
 

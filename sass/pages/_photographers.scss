@@ -104,6 +104,7 @@
     }
     Video{
         width: 440px;
+        height: 440px;
         object-fit: cover;
     }
 }
@@ -172,5 +173,8 @@
         article{
             max-width: 200px;
         }
+    }
+    .classify{
+        display: none;
     }
 }
