@@ -54,6 +54,21 @@
     padding-top: 63px;
 }
 
+.likes{
+    font-size: 24px;
+    font-weight: 500;
+    background-color: $secondary;
+    width: 376px;
+    height: 89px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 36px;
+}
+
 .classify{
     margin: 2em;
     label{
@@ -186,6 +201,9 @@
         }
     }
     .classify{
+        display: none;
+    }
+    .likes{
         display: none;
     }
 }

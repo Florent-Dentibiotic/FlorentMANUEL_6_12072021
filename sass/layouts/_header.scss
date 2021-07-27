@@ -4,6 +4,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
+    .btn__secondary{
+        position: fixed;
+        top: 1em;
+        left: 50%;
+        margin-left: -91px;
+    }
     &__nav{
         width: 700px;
         display: flex;
@@ -13,8 +19,6 @@
         &:hover{
             .btn__secondary{
                 display: block;
-                position: absolute;
-                top: 1em;
             }
         }
         &__tags{
@@ -26,6 +30,10 @@
     h1{
         color: $primary;
         font-size: 36px;
+    }
+    a{
+        text-decoration: none;
+        color: $black;
     }
 }
 

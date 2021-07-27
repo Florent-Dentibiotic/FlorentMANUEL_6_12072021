@@ -98,7 +98,7 @@ body {
   border: 0.5px solid #525252;
   border-radius: 11px;
   text-decoration: none;
-  margin: 1em 0.5em;
+  margin: 0.2em;
 }
 .tag:hover {
   color: #fff;
@@ -121,6 +121,12 @@ body {
   justify-content: space-between;
   position: relative;
 }
+.header .btn__secondary {
+  position: fixed;
+  top: 1em;
+  left: 50%;
+  margin-left: -91px;
+}
 .header__nav {
   width: 700px;
   display: flex;
@@ -130,8 +136,6 @@ body {
 }
 .header__nav:hover .btn__secondary {
   display: block;
-  position: absolute;
-  top: 1em;
 }
 .header__nav__tags {
   list-style: none;
@@ -141,6 +145,10 @@ body {
 .header h1 {
   color: #901C1C;
   font-size: 36px;
+}
+.header a {
+  text-decoration: none;
+  color: #000;
 }
 
 @media screen and (max-width: 768px) {
@@ -304,6 +312,21 @@ body {
   padding-top: 63px;
 }
 
+.likes {
+  font-size: 24px;
+  font-weight: 500;
+  background-color: #D3573C;
+  width: 376px;
+  height: 89px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 36px;
+}
+
 .classify {
   margin: 2em;
 }
@@ -432,6 +455,10 @@ body {
   }
 
   .classify {
+    display: none;
+  }
+
+  .likes {
     display: none;
   }
 }

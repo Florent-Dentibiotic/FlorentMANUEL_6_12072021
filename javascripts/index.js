@@ -1,3 +1,14 @@
+// ONSCROLL BTN__SECONDARY VISIBLE
+const btnSecondary = document.querySelector('.btn__secondary');
+document.addEventListener('scroll', btnVisible);
+function btnVisible(){
+  btnSecondary.style.display = "block";
+  setTimeout(btnInvisible, 2000);
+  function btnInvisible(){
+    btnSecondary.style.display = "none";
+  }
+}
+
 //CALL FUNTION NEW ARTICLE WHEN LOAD
 request.onload = function() {
     var fishEyeData = request.response;

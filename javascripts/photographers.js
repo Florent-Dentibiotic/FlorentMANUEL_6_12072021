@@ -6,6 +6,8 @@ const intro = document.querySelector('.intro');
 const presentation = document.querySelector('.presentation');
 const picture = document.querySelector('.intro__picture');
 const photos = document.querySelector('.photos');
+const likes__infos = document.querySelector('.likes');
+let totalLikes = 0;
 
 //CALL FUNTION NEW ARTICLE WHEN LOAD
 request.onload = function() {
@@ -100,9 +102,22 @@ function addPictures(jsonObj){
         newI.classList.add('fas');
         newI.classList.add('fa-heart');
     }
+
     const allFas = document.querySelectorAll('.fas');
     let hearts = Array.from(allFas);
     hearts.forEach(element => element.addEventListener("click", addALike));
+    for(let i = 0; i < hearts.length; i++){
+        let someLikes = parseInt(hearts[i].previousSibling.textContent, 10);
+        totalLikes = totalLikes + someLikes;
+    }
+
+    // ADDING TOTAL OF LIKES
+    let newP = document.createElement('p');
+    likes__infos.appendChild(newP);
+    let newPBis = document.createElement('p');
+    likes__infos.appendChild(newPBis);
+    newP.innerHTML = totalLikes + ' <i class="fas fa-heart"></i>';
+    newPBis.textContent = thisPhotographe.price + '€ / jour';
 }
 
 function addALike(){
@@ -113,6 +128,7 @@ function addALike(){
     var fishEyeMedia = request.response['media'];
     const findMediaIndex = fishEyeMedia.findIndex(element => element.title == this.parentElement.parentElement.firstChild.textContent);
     fishEyeMedia[findMediaIndex].likes = addLike;
-    console.log(fishEyeMedia[findMediaIndex].likes);
+    let newLike = parseInt(likes__infos.firstElementChild.innerText) + 1;
+    likes__infos.firstElementChild.innerHTML = newLike + ' <i class="fas fa-heart"></i>';
 }
 
