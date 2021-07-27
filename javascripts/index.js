@@ -55,13 +55,10 @@ function createArticle(jsonObj) {
 // TAG SELECTION OF AUTORS
 function classifyFromTag(){
   let tag = this.innerHTML.toLowerCase();
-  console.log(tag);
   const articles = document.querySelectorAll('article');
-  console.log(articles[0].lastChild.innerText);
   const articlesArray = Array.from(articles);
   const foundNonTagsAutors = articlesArray.filter(element => !element.textContent.includes(tag));
   const foundTagsAutors = articlesArray.filter(element => element.textContent.includes(tag));
-  console.log(foundNonTagsAutors);
   foundNonTagsAutors.forEach(element => element.style.display = "none");
   foundTagsAutors.forEach(element => element.style.display = "block");
 }

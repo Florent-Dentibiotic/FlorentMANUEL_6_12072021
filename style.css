@@ -355,6 +355,9 @@ body {
   color: #901C1C;
   width: 440px;
 }
+.photos article .fas:hover {
+  cursor: pointer;
+}
 .photos img {
   width: 440px;
   height: 440px;

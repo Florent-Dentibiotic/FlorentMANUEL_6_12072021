@@ -59,6 +59,7 @@ function addPictures(jsonObj){
     const found = photographes.findIndex(element => element.id == url_id);
     const thisPhotographe = photographes[found];
 
+    //ADDING PHOTOS AND VIDEOS IN PHOTOGRAPHES PAGE
     for (var i = 0; i < foundPictures.length; i++) {
 
         let newArticle = document.createElement('article');
@@ -75,12 +76,10 @@ function addPictures(jsonObj){
             newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
             newSource.setAttribute("poster", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].poster));
             newSource.setAttribute("video", "video/mp4");
-
         //ELSE IF ITS A PHOTO
         } else {
             let newImage = document.createElement('img');
             newArticle.appendChild(newImage);
-
             newImage.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].image));
         }
 
@@ -90,14 +89,30 @@ function addPictures(jsonObj){
         newDiv.appendChild(newH3);
         let newH3bis = document.createElement('h3');
         newDiv.appendChild(newH3bis);
-        // FOR EACH PHOTOGRAPHERS DISPLAYING ALL INFORMATIONS
+        // FOR EACH PHOTOS DISPLAYING ALL INFORMATIONS
         newDiv.classList.add('img-label');
         newH3.textContent = foundPictures[i].title;
         newH3bis.textContent = foundPictures[i].likes + " ";
 
+        // ADDING THE HEART FOR LIKES
         let newI = document.createElement('i');
         newH3bis.appendChild(newI);
         newI.classList.add('fas');
         newI.classList.add('fa-heart');
     }
+    const allFas = document.querySelectorAll('.fas');
+    let hearts = Array.from(allFas);
+    hearts.forEach(element => element.addEventListener("click", addALike));
 }
+
+function addALike(){
+    let thisLikes = parseInt(this.previousSibling.textContent, 10);
+    let addLike = thisLikes + 1;
+    this.previousSibling.textContent = addLike + " ";
+
+    var fishEyeMedia = request.response['media'];
+    const findMediaIndex = fishEyeMedia.findIndex(element => element.title == this.parentElement.parentElement.firstChild.textContent);
+    fishEyeMedia[findMediaIndex].likes = addLike;
+    console.log(fishEyeMedia[findMediaIndex].likes);
+}
+

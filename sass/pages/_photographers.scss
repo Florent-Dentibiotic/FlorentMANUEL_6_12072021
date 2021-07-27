@@ -102,6 +102,11 @@
             color: $primary;
             width: 440px;
         }
+        .fas{
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
     img{
         width: 440px;
