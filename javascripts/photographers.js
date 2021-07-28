@@ -8,6 +8,33 @@ const picture = document.querySelector('.intro__picture');
 const photos = document.querySelector('.photos');
 const likes__infos = document.querySelector('.likes');
 let totalLikes = 0;
+const classifyOptions = document.querySelector('.classify__options');
+let options = document.querySelectorAll('.options');
+let thematicBreak = document.querySelectorAll('hr');
+let chevron = document.querySelector('.chevron');
+let optionsArray = Array.from(options);    
+// radio elements for classification
+let popularityClassification = optionsArray[0].children[0];
+let dateClassification = optionsArray[1].children[0];
+let titleClassification = optionsArray[2].children[0];
+
+// BTN FOR CLASSIFYING PICTURES
+classifyOptions.addEventListener('mouseover', radioBtnVisible);
+classifyOptions.addEventListener('mouseout', radioBtnInvisible);
+
+function radioBtnVisible(){
+    options.forEach(element => element.classList.replace("d-none", "d-block"));
+    thematicBreak.forEach(element => element.classList.replace("d-none", "d-block"));
+    chevron.classList.replace('fa-chevron-down', 'fa-chevron-up');
+};
+
+function radioBtnInvisible(){
+    let optionsNotSelected = optionsArray.filter(element => element.children[0].checked != true);
+    //let optionSelected = optionsArray.filter(element => element.children[0].checked == true);
+    optionsNotSelected.forEach(element => element.classList.replace("d-block", "d-none"));
+    thematicBreak.forEach(element => element.classList.replace("d-block", "d-none"));
+    chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
+}
 
 //CALL FUNTION NEW ARTICLE WHEN LOAD
 request.onload = function() {
@@ -54,7 +81,16 @@ function createIntro(jsonObj) {
 //FUNCTION TO ADD PICTURES OF THE SELECTED ARTIST
 function addPictures(jsonObj){
     let media = jsonObj['media'];
-    const foundPictures = media.filter(element => element.photographerId == url_id);
+    const foundPicturesUnsorted = media.filter(element => element.photographerId == url_id);
+    let foundPictures = foundPicturesUnsorted;
+
+    if(popularityClassification.checked == true){
+        foundPictures = foundPicturesUnsorted.sort((a,b) => b.likes - a.likes);
+    } else if (dateClassification.checked == true){
+        foundPictures = foundPicturesUnsorted.sort((a,b) => a.date - b.date);
+    } else if (titleClassification.checked == true){
+        foundPictures = foundPicturesUnsorted.sort((a,b) => a.title - b.title);
+    }
 
     //FINDING THE GOOD PHOTOGRAPHER WITH IS ID
     let photographes = jsonObj['photographers'];
@@ -103,7 +139,7 @@ function addPictures(jsonObj){
         newI.classList.add('fa-heart');
     }
 
-    const allFas = document.querySelectorAll('.fas');
+    const allFas = document.querySelectorAll('.fa-heart');
     let hearts = Array.from(allFas);
     hearts.forEach(element => element.addEventListener("click", addALike));
     for(let i = 0; i < hearts.length; i++){

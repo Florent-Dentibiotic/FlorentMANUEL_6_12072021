@@ -30,12 +30,25 @@
         </section>
 
         <section class="classify">
-            <label for="sort-by">Trier par</label>
-            <select name="sort-pictures" id="sort-by">
-                <option value="popularity">Popularité</option>
-                <option value="date">Date</option>
-                <option value="title">Titre</option>
-            </select>
+            <p>Trier par</p>
+
+            <div class="classify__options">
+                <i class="chevron fas fa-chevron-down"></i>
+                <div class="options d-block">
+                <input type="radio" id="popularity" name="classification" value="popularity">
+                <label for="popularity">Popularité</label>
+                </div>
+                <hr class="d-none">
+                <div class="options d-none">
+                <input type="radio" id="date" name="classification" value="date">
+                <label for="date">Date</label>
+                </div>
+                <hr class="d-none">
+                <div class="options d-none">
+                <input type="radio" id="title" name="classification" value="title">
+                <label for="title">Titre</label>
+                </div>
+            </div>
         </section>
 
         <aside class="likes">

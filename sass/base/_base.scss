@@ -1,5 +1,13 @@
-body{
+body, main{
     position: relative;
     max-width: 1440px;
     margin: auto;
+}
+
+.d-none{
+    display: none;
+}
+
+.d-block{
+    display: block;
 }

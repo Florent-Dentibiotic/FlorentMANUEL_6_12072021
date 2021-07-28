@@ -1,0 +1,44 @@
+.classify{
+    margin: 2em;
+    display: flex;
+    position: relative;
+    label, p{
+        font-size: 18px;
+        margin-right: 1em;
+    }
+    .classify__options{
+        background-color: $primary;
+        border-radius: 5px;
+        position: absolute;
+        left: 7em;
+        i{
+            position: absolute;
+            left: 7.5em;
+            top: 1em;
+            font-size: 18px;
+            font-weight: 700;
+            color: $white;
+        }
+    }
+    .options{
+        font-size: 18px;
+        font-weight: 700;
+        color: $white;
+        background-color: $primary;
+        border: none;
+        border-radius: 5px;
+        padding: 1em;
+        width: 170px;
+        -webkit-box-sizing: border-box; /* Pour les anciennes versions des navigateurs WebKit */
+        -moz-box-sizing: border-box; /* Pour tous les navigateurs Gecko */
+        box-sizing: border-box;
+    }
+    input{
+        display: none;
+    }
+    hr{
+        width: 150px;
+        margin: 0 auto;
+        color: $white;
+    }
+}
