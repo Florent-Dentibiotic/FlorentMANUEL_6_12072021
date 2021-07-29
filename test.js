@@ -9,37 +9,41 @@ const photos = document.querySelector('.photos');
 const likes__infos = document.querySelector('.likes');
 const main = document.querySelector('main');
 let totalLikes = 0;
-let photographPrice = 0;
 const classifyOptions = document.querySelector('.classify__options');
 let options = document.querySelectorAll('.options');
 let thematicBreak = document.querySelectorAll('hr');
 let chevron = document.querySelector('.chevron');
-let optionsArray = Array.from(options);    
+let optionsArray = Array.from(options);
 // radio elements for classification
 let popularityClassification = optionsArray[0].children[0];
 let dateClassification = optionsArray[1].children[0];
 let titleClassification = optionsArray[2].children[0];
+let photoPopularitySorted = [];
+let photoDateSorted = [];
+let photoTitleSorted = [];
 let photographPictures = [];
+let filteredPictures = [];
 
 // BTN FOR CLASSIFYING PICTURES
 classifyOptions.addEventListener('mouseover', radioBtnVisible);
 classifyOptions.addEventListener('mouseout', radioBtnInvisible);
-optionsArray.forEach(element => element.addEventListener('change', reloadPhotosSection));
+//optionsArray.forEach(element => element.addEventListener('change', reloadPhotosSection));
 
-function radioBtnVisible(){
+function radioBtnVisible() {
     options.forEach(element => element.classList.replace("d-none", "d-block"));
     thematicBreak.forEach(element => element.classList.replace("d-none", "d-block"));
     chevron.classList.replace('fa-chevron-down', 'fa-chevron-up');
 };
 
-function radioBtnInvisible(){
+function radioBtnInvisible() {
     let optionsNotSelected = optionsArray.filter(element => element.children[0].checked != true);
+    //let optionSelected = optionsArray.filter(element => element.children[0].checked == true);
     optionsNotSelected.forEach(element => element.classList.replace("d-block", "d-none"));
     thematicBreak.forEach(element => element.classList.replace("d-block", "d-none"));
     chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
 }
 
-function reloadPhotosSection(){
+function reloadPhotosSection() {
     const allArticles = document.querySelectorAll('.article');
     allArticles.forEach(element => element.remove());
     var fishEyeData = request.response;
@@ -51,8 +55,8 @@ request.onload = function() {
     var fishEyeData = request.response;
     createIntro(fishEyeData);
     addPictures(fishEyeData);
-    addAsideLikes();
 }
+
 
 // FUNCTION TO CREATE A NEW INTRODUCTION OF THE SELECTED ARTIST
 function createIntro(jsonObj) {
@@ -88,23 +92,52 @@ function createIntro(jsonObj) {
     picture.setAttribute("src", ("./imgs/Sample Photos/Photographers ID Photos/" + thisPhotographe.portrait));
 }
 
+function sortPhotographPictures(keyword) {
+    switch (keyword) {
+        case 'popularity':
+            filteredPictures = photographPictures.sort((a, b) => b.likes - a.likes);
+            // Prepopuler la section avec le nouveau tableau
+            // populateSectionWith(filteredPictures);
+            break;
+        case 'date':
+            let pictures = [];
+            photographPictures.forEach(element => {
+                pictures.push({
+                    id: element.id,
+                    photographerId: element.photographerId,
+                    title: element.title,
+                    video: element.video,
+                    poster: element.poster,
+                    price: element.price,
+                    tags: element.tags,
+                    likes: element.likes,
+                    date: element.date,
+                    timestamps: Date.parse(element.date)
+                })
+            });
+            filteredPictures = pictures.sort((a, b) => b.timestamps - a.timestamps);
+            // Prepopuler la section avec le nouveau tableau
+            // populateSectionWith(filteredPictures);
+            break;
+        case 'title':
+            filteredPictures = photographPictures.sort((a, b) => b.title - a.title);
+            // Prepopuler la section avec le nouveau tableau
+            // populateSectionWith(filteredPictures);
+        default:
+            break;
+    }
+}
+
 //FUNCTION TO ADD PICTURES OF THE SELECTED ARTIST
-function addPictures(jsonObj){
+function addPictures(jsonObj) {
     let media = jsonObj['media'];
     const foundPictures = media.filter(element => element.photographerId == url_id);
     photographPictures = foundPictures;
+    foundPictures.sort((a, b) => b.likes - a.likes);
 
-    if(options[0].children[0].checked == true){
-        photographPictures.sort((a, b) => b.likes - a.likes);
-    } else if (options[1].children[0].checked == true){
-        photographPictures.sort(function(a, b){
-            let aValue = Date.parse(a.date);
-            let bValue = Date.parse(b.date);
-            return aValue - bValue;
-        });
-    } else if (options[2].children[0].checked == true) {
-        photographPictures.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
-    }
+    filteredPictures = photographPictures.sort((a, b) => a.title < b.title);
+    const filters = photographPictures.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
+    console.log(filters);
 
     //FINDING THE GOOD PHOTOGRAPHER WITH IS ID
     let photographes = jsonObj['photographers'];
@@ -119,7 +152,7 @@ function addPictures(jsonObj){
         newArticle.classList.add('article');
 
         //IF ITS A VIDEO
-        if(foundPictures[i].image === undefined){
+        if (foundPictures[i].image === undefined) {
             let newVideo = document.createElement('video');
             newArticle.appendChild(newVideo);
             let newSource = document.createElement('source');
@@ -129,7 +162,7 @@ function addPictures(jsonObj){
             newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
             newSource.setAttribute("poster", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].poster));
             newSource.setAttribute("video", "video/mp4");
-        //ELSE IF ITS A PHOTO
+            //ELSE IF ITS A PHOTO
         } else {
             let newImage = document.createElement('img');
             newArticle.appendChild(newImage);
@@ -157,25 +190,21 @@ function addPictures(jsonObj){
     const allFas = document.querySelectorAll('.fa-heart');
     let hearts = Array.from(allFas);
     hearts.forEach(element => element.addEventListener("click", addALike));
-    for(let i = 0; i < hearts.length; i++){
+    for (let i = 0; i < hearts.length; i++) {
         let someLikes = parseInt(hearts[i].previousSibling.textContent, 10);
         totalLikes = totalLikes + someLikes;
     }
 
-    photographPrice = thisPhotographe.price;
-}
-
-// ADDING TOTAL OF LIKES
-function addAsideLikes(){
+    // ADDING TOTAL OF LIKES
     let newP = document.createElement('p');
     likes__infos.appendChild(newP);
     let newPBis = document.createElement('p');
     likes__infos.appendChild(newPBis);
     newP.innerHTML = totalLikes + ' <i class="fas fa-heart"></i>';
-    newPBis.textContent = photographPrice + '€ / jour';
+    newPBis.textContent = thisPhotographe.price + '€ / jour';
 }
 
-function addALike(){
+function addALike() {
     let thisLikes = parseInt(this.previousSibling.textContent, 10);
     let addLike = thisLikes + 1;
     this.previousSibling.textContent = addLike + " ";
@@ -184,6 +213,5 @@ function addALike(){
     const findMediaIndex = fishEyeMedia.findIndex(element => element.title == this.parentElement.parentElement.firstChild.textContent);
     fishEyeMedia[findMediaIndex].likes = addLike;
     let newLike = parseInt(likes__infos.firstElementChild.innerText) + 1;
-    likes__infos.firstElementChild.innerHTML = newLike + ' <i class="fas fa-heart"></i>';
+    likes__infos.firstElementChild.innerHTML = `${newLike} <i class="fas fa-heart"></i>`;
 }
-

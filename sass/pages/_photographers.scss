@@ -69,32 +69,6 @@
     right: 1.5em;
 }
 
-.classify{
-    margin: 2em;
-    label{
-        font-size: 18px;
-        margin-right: 1em;
-    }
-    select{
-        font-size: 18px;
-        font-weight: 700;
-        color: $white;
-        background-color: $primary;
-        border: none;
-        border-radius: 5px;
-        padding: 1em;
-        width: 170px;
-        -webkit-box-sizing: border-box; /* Pour les anciennes versions des navigateurs WebKit */
-        -moz-box-sizing: border-box; /* Pour tous les navigateurs Gecko */
-        box-sizing: border-box;
-    }
-    option{
-        height: 170px;
-        -webkit-appearance : none; /* Pour avoir le contrôle de l'apparence sur WebKit/Chromium */
-        -moz-appearance : none;
-    }
-}
-
 .photos{
     margin-top: 2em;
     display: grid;
