@@ -3,7 +3,7 @@ const btnSecondary = document.querySelector('.btn__secondary');
 document.addEventListener('scroll', btnVisible);
 function btnVisible(){
   btnSecondary.style.display = "block";
-  setTimeout(btnInvisible, 2000);
+  setTimeout(btnInvisible, 5000);
   function btnInvisible(){
     btnSecondary.style.display = "none";
   }

@@ -51,6 +51,7 @@ body {
 .classify label, .classify p {
   font-size: 18px;
   margin-right: 1em;
+  width: 150px;
 }
 .classify .classify__options {
   background-color: #901C1C;
@@ -126,6 +127,7 @@ body {
   top: 1em;
   left: 50%;
   margin-left: -91px;
+  z-index: 10;
 }
 .header__nav {
   width: 700px;
