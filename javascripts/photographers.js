@@ -5,6 +5,7 @@ const url_id = window.location.search.slice(1);
 const intro = document.querySelector('.intro');
 const presentation = document.querySelector('.presentation');
 const picture = document.querySelector('.intro__picture');
+const contactTitle = document.querySelector('.contact__modal__box__title');
 const photos = document.querySelector('.photos');
 const likes__infos = document.querySelector('.likes');
 const main = document.querySelector('main');
@@ -86,6 +87,9 @@ function createIntro(jsonObj) {
     });
     //PHOTOGRAPHER PORTRAIT
     picture.setAttribute("src", ("./imgs/Sample Photos/Photographers ID Photos/" + thisPhotographe.portrait));
+
+    //CONTACT FORM NAME
+    contactTitle.childNodes[1].innerHTML = `Contactez-moi <br>${thisPhotographe.name}`;
 }
 
 //FUNCTION TO ADD PICTURES OF THE SELECTED ARTIST

@@ -1,0 +1,91 @@
+.contact__modal{
+    display: none;
+    position: fixed;
+    z-index: 12;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: $white;
+    &__box{
+        width: 668px;
+        border-radius: 5px;
+        background-color: $secondary;
+        position: fixed;
+        left: 50%;
+        top: 68px;
+        margin-left: -334px;
+        padding: 1em;
+        box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.25);
+        &__title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    h1{
+        color: $black !important; 
+        font-size: 64px;
+        font-weight: 400;
+        margin-top: 0;
+    }
+    .fas{
+        color: $white;
+        font-size: 64px;
+    }
+    label{
+        font-size: 36px;
+        font-weight: 400;
+    }
+    input{
+        max-width: 100%;
+        height: 68px;
+        border-radius: 5px;
+    }
+    #message{
+        height: 170px;
+        margin-bottom: 26px;
+    }
+    .btn__primary{
+        &:hover{
+            border: 4px solid $primary;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .contact__modal{
+        &__box{
+            max-width: 343px;
+            left: 0;
+            top: 0;
+            margin-left: 0;
+        }
+        h1{
+            font-size: 36px;
+        }
+        .fas{
+            font-size: 19px;
+        }
+        label{
+            font-size: 24px;
+        }
+        input{
+            width: 338px;
+            height: 52px;
+        }
+        #message{
+            height: 160px;
+        }
+        .btn__primary{
+            &:hover{
+                border: 4px solid $primary;
+            }
+        }
+    }
+}
+
+.photos__modal{
+    display: none;
+}

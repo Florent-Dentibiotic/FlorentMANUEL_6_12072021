@@ -28,10 +28,39 @@
 
             </article>
             <div class="contact">
-                <a class="btn__primary intro__contact" href="mailto:mimikeel@gmail.com"><button
-                        class="btn__primary">Contactez-moi</button></a>
+                <button class="btn__primary open__modal">Contactez-moi</button>
             </div>
             <img class="intro__picture">
+            <div class="contact__modal">
+                <div class="contact__modal__box">
+                    <div class="contact__modal__box__title">
+                        <h1></h1><i class="fas fa-times quit__modal"></i>
+                    </div>
+                    <form action="" method="post" class="form-contact">
+                        <div class="form-contact">
+                          <label for="first-name">Prénom</label><br>
+                          <input cols="30" type="text" name="first-name" id="first-name" size="81" required>
+                        </div>
+                        <div class="form-contact">
+                            <label for="name">Nom</label><br>
+                            <input cols="30" type="text" name="name" id="name" size="81" required>
+                        </div>
+                        <div class="form-contact">
+                          <label for="email">Email</label><br>
+                          <input cols="30" type="email" name="email" id="email" size="81" required>
+                        </div>
+                        <div class="form-contact">
+                            <label for="message">Votre message</label><br>
+                            <input cols="30" rows="5" type="text" name="message" id="message" size="81" required>
+                        </div>
+                        <div class="form-contact">
+                          <input class="btn__primary" type="submit" value="Envoyer">
+                        </div>
+                      </form>
+                      
+                      
+                </div>
+            </div>
         </section>
 
         <section class="classify">
@@ -62,11 +91,15 @@
 
         <section class="photos">
 
+            <div class="photos__modal">
+                <i class="fas fa-times"></i>
+            </div>
         </section>
 
     </main>
     <script src="fisheye.js"></script>
     <script src="./javascripts/photographers.js"></script>
+    <script src="./javascripts/modal.js"></script>
 </body>
 
 </html>
