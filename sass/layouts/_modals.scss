@@ -111,13 +111,13 @@
     .fa-chevron-left{
         position: absolute;
         top: 50%;
-        margin-top: 32px;
+        margin-top: -32px;
         left: 1em;
     }
     .fa-chevron-right{
         position: absolute;
         top: 50%;
-        margin-top: 32px;
+        margin-top: -32px;
         right: 1em;
     }
     img{
@@ -144,4 +144,41 @@
         max-width: 950px;
         margin: auto;
     }
+}
+
+@media screen and (max-width: 375px) {
+    .photos__modal{
+        .fas{
+            font-size: 16px;
+        }
+        .fa-chevron-left{
+            margin-top: -8px;
+        }
+        .fa-chevron-right{
+            margin-top: -8px;
+        }
+        img{
+            max-width: 290px;
+            max-height: 420px;
+        }
+        video{
+            max-width: 290px;
+        }
+        &__lightbox{
+            width: 375px;
+            height: 450px;
+            top: 15%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+        }
+        .media{
+            width: 375px;
+        }
+        h3{
+            font-size: 14px;
+            max-width: 290px;
+        }
+    }   
 }
