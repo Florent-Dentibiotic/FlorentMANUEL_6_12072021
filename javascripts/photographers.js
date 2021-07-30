@@ -9,6 +9,7 @@ const contactTitle = document.querySelector('.contact__modal__box__title');
 const photos = document.querySelector('.photos');
 const likes__infos = document.querySelector('.likes');
 const main = document.querySelector('main');
+let allMedias = [];
 let totalLikes = 0;
 let photographPrice = 0;
 const classifyOptions = document.querySelector('.classify__options');
@@ -129,7 +130,7 @@ function addPictures(jsonObj){
             let newSource = document.createElement('source');
             newVideo.appendChild(newSource);
 
-            newVideo.setAttribute("controls", "");
+            //newVideo.setAttribute("controls", "");
             newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
             newSource.setAttribute("poster", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].poster));
             newSource.setAttribute("video", "video/mp4");
@@ -165,7 +166,9 @@ function addPictures(jsonObj){
         let someLikes = parseInt(hearts[i].previousSibling.textContent, 10);
         totalLikes = totalLikes + someLikes;
     }
-
+    allImages = document.querySelectorAll('.img-label');
+    allMedias = (Array.from(allImages)).map(x => x.previousElementSibling);
+    allMedias.forEach(element => element.addEventListener('click', openPhotosModal));
     photographPrice = thisPhotographe.price;
 }
 
