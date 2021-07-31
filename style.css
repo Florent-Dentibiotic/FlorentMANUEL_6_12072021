@@ -42,6 +42,11 @@ body {
   color: #000;
 }
 
+@media screen and (max-width: 768px) {
+  .btn__primary {
+    font-size: 18px;
+  }
+}
 .classify {
   margin: 2em;
   display: flex;
@@ -109,7 +114,7 @@ body {
   width: 300px;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 768px) {
   .logo {
     width: 150px;
   }
@@ -332,6 +337,44 @@ body {
   margin: auto;
 }
 
+@media screen and (max-width: 768px) {
+  .photos__modal .fas {
+    font-size: 35px;
+  }
+  .photos__modal .fa-times {
+    right: 0.5em;
+  }
+  .photos__modal .fa-chevron-left {
+    left: 0.5em;
+  }
+  .photos__modal .fa-chevron-right {
+    right: 0.5em;
+  }
+  .photos__modal img {
+    max-width: 600px;
+    max-height: 800px;
+  }
+  .photos__modal video {
+    max-width: 600px;
+    max-height: 800px;
+  }
+  .photos__modal__lightbox {
+    width: 700px;
+    height: 900px;
+    top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+  }
+  .photos__modal .media {
+    width: 700px;
+  }
+  .photos__modal h3 {
+    font-size: 18px;
+    max-width: 600px;
+  }
+}
 @media screen and (max-width: 375px) {
   .photos__modal .fas {
     font-size: 16px;
@@ -598,6 +641,10 @@ body {
   .photos Video {
     width: 335px;
     height: 190px;
+  }
+
+  .likes {
+    display: none;
   }
 }
 @media screen and (max-width: 375px) {

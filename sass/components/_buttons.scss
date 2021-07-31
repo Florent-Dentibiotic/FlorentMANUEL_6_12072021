@@ -24,3 +24,11 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .btn{
+        &__primary{
+            font-size: 18px;
+        }
+    } 
+}
