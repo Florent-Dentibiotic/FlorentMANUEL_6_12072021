@@ -88,6 +88,7 @@ function createIntro(jsonObj) {
     });
     //PHOTOGRAPHER PORTRAIT
     picture.setAttribute("src", ("./imgs/Sample Photos/Photographers ID Photos/" + thisPhotographe.portrait));
+    picture.setAttribute("alt", thisPhotographe.name);
 
     //CONTACT FORM NAME
     contactTitle.childNodes[1].innerHTML = `Contactez-moi <br>${thisPhotographe.name}`;
@@ -157,6 +158,7 @@ function addPictures(jsonObj){
         newH3bis.appendChild(newI);
         newI.classList.add('fas');
         newI.classList.add('fa-heart');
+        newI.setAttribute("aria-label", "likes");
     }
 
     const allFas = document.querySelectorAll('.fa-heart');

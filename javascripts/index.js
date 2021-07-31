@@ -46,6 +46,7 @@ function createArticle(jsonObj) {
         // FOR EACH PHOTOGRAPHERS DISPLAYING ALL INFORMATIONS
         newLink.setAttribute("href", ("photographers.html?" + photographes[i].id));
         newImage.setAttribute("src", ("./imgs/Sample Photos/Photographers ID Photos/" + photographes[i].portrait));
+        newImage.setAttribute("alt", photographes[i].name);
         newH2.textContent = photographes[i].name;
         newH3.textContent = photographes[i].city + ', ' + photographes[i].country;
         newH4.textContent = photographes[i].tagline;
