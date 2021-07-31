@@ -18,6 +18,17 @@ quitModal.addEventListener('click', function closeModal(){
 quitPhotoModal.addEventListener('click', closePhotoModal);
 previousMedia.addEventListener('click', launchPreviousMedia);
 nextMedia.addEventListener('click', launchNextMedia);
+document.addEventListener('keydown', event => {
+    if(event.code == "ArrowRight"){
+        if(photoModal.style.display == 'block'){
+            launchNextMedia()
+        }
+    } else if (event.code == "ArrowLeft"){
+        if(photoModal.style.display == 'block'){
+            launchPreviousMedia()
+        }
+    }
+});
 
 function openPhotosModal(){
     //mediaDiv.removeChild(mediaDiv.children);
