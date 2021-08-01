@@ -50,33 +50,35 @@ function closePhotoModal(){
 };
 
 function launchPreviousMedia(){
-    if(mediaDiv.firstChild.localName == "video"){
-        mediaDiv.firstChild.removeAttribute("controls", "");
-    }
-    let mediaIndex = allMedias.findIndex(element => element.outerHTML == mediaDiv.innerHTML)
-    if((mediaIndex-1) >= 0){
-        mediaDiv.innerHTML = allMedias[mediaIndex-1].outerHTML;
-        photoModal.firstElementChild.lastChild.textContent = allMedias[mediaIndex-1].parentElement.children[1].firstChild.innerHTML;
-        if(mediaDiv.firstChild.localName == "video"){
-            mediaDiv.firstChild.setAttribute("controls", "");
-        }
-    } else {
-        photoModal.style.display = 'none';
-    }
+    launchMedia("left");
 };
 
 function launchNextMedia(){
+    launchMedia("right");
+};
+
+function launchMedia(direction){
     if(mediaDiv.firstChild.localName == "video"){
         mediaDiv.firstChild.removeAttribute("controls", "");
     }
     let mediaIndex = allMedias.findIndex(element => element.outerHTML == mediaDiv.innerHTML)
-    if((mediaIndex+1) < allMedias.length){
-        mediaDiv.innerHTML = allMedias[mediaIndex+1].outerHTML;
-        photoModal.firstElementChild.lastChild.textContent = allMedias[mediaIndex+1].parentElement.children[1].firstChild.innerHTML;
-        if(mediaDiv.firstChild.localName == "video"){
-            mediaDiv.firstChild.setAttribute("controls", "");
+    if(direction == "right"){
+        if((mediaIndex+1) < allMedias.length){
+            mediaDiv.innerHTML = allMedias[mediaIndex+1].outerHTML;
+            photoModal.firstElementChild.lastChild.textContent = allMedias[mediaIndex+1].parentElement.children[1].firstChild.innerHTML;
+            if(mediaDiv.firstChild.localName == "video"){
+                mediaDiv.firstChild.setAttribute("controls", "");
+            }
+    } else if(direction == "left"){
+        if((mediaIndex-1) >= 0){
+            mediaDiv.innerHTML = allMedias[mediaIndex-1].outerHTML;
+            photoModal.firstElementChild.lastChild.textContent = allMedias[mediaIndex-1].parentElement.children[1].firstChild.innerHTML;
+            if(mediaDiv.firstChild.localName == "video"){
+                mediaDiv.firstChild.setAttribute("controls", "");
+            }
         }
     } else {
         photoModal.style.display = 'none';
+        }
     }
 };
