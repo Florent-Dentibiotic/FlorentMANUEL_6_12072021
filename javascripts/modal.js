@@ -31,7 +31,6 @@ document.addEventListener('keydown', event => {
 });
 
 function openPhotosModal(){
-    //mediaDiv.removeChild(mediaDiv.children);
     if(mediaDiv.childNodes[0].localName == "img" || mediaDiv.childNodes[0].localName == "video"){
         mediaDiv.removeChild(mediaDiv.childNodes[0]);
         photoModal.firstElementChild.removeChild(photoModal.firstElementChild.lastElementChild);
