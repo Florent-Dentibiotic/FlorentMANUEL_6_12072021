@@ -3,17 +3,20 @@
     display: flex;
     position: relative;
     border: none;
-    label, legend{
+    label, legend, h2{
         font-size: 18px;
+        font-weight: 700;
         margin-right: 1em;
     }
     .classify__options{
+        list-style: none;
         background-color: $primary;
         border-radius: 5px;
         position: absolute;
         left: 7em;
-        top: -2em;
+        top: -1em;
         z-index: 5;
+        padding: 0;
         i{
             position: absolute;
             left: 7.5em;
@@ -23,9 +26,10 @@
             color: $white;
         }
     }
-    .options{
+    li{
         font-size: 18px;
         font-weight: 700;
+        text-align: start;
         color: $white;
         background-color: $primary;
         border: none;
@@ -35,9 +39,6 @@
         -webkit-box-sizing: border-box; /* Pour les anciennes versions des navigateurs WebKit */
         -moz-box-sizing: border-box; /* Pour tous les navigateurs Gecko */
         box-sizing: border-box;
-    }
-    input{
-        display: none;
     }
     hr{
         width: 150px;

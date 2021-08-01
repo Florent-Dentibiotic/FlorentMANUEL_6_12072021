@@ -12,22 +12,19 @@ const main = document.querySelector('main');
 let allMedias = [];
 let totalLikes = 0;
 let photographPrice = 0;
+
+// List elements for classification
 const classifyOptions = document.querySelector('.classify__options');
 let options = document.querySelectorAll('.options');
 let thematicBreak = document.querySelectorAll('hr');
 let chevron = document.querySelector('.chevron');
 let optionsArray = Array.from(options);
+let optionsSelected = optionsArray.filter(element => element.attributes[2].value == "true");
 
-// radio elements for classification
-let popularityClassification = optionsArray[0].children[0];
-let dateClassification = optionsArray[1].children[0];
-let titleClassification = optionsArray[2].children[0];
-let photographPictures = [];
-
-// BTN FOR CLASSIFYING PICTURES
+// EVENT LISTENER FOR CLASSIFYING PICTURES
 classifyOptions.addEventListener('mouseover', radioBtnVisible);
 classifyOptions.addEventListener('mouseout', radioBtnInvisible);
-optionsArray.forEach(element => element.addEventListener('change', reloadPhotosSection));
+optionsArray.forEach(element => element.addEventListener('click', changeAriaSelectedValue));
 
 function radioBtnVisible(){
     options.forEach(element => element.classList.replace("d-none", "d-block"));
@@ -36,10 +33,19 @@ function radioBtnVisible(){
 };
 
 function radioBtnInvisible(){
-    let optionsNotSelected = optionsArray.filter(element => element.children[0].checked != true);
+    let optionsNotSelected = optionsArray.filter(element => element.attributes[2].value != "true");
     optionsNotSelected.forEach(element => element.classList.replace("d-block", "d-none"));
     thematicBreak.forEach(element => element.classList.replace("d-block", "d-none"));
     chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
+}
+
+function changeAriaSelectedValue(){
+    let optionsSelected = optionsArray.filter(element => element.attributes[2].value == "true");
+    this.attributes[2].value = "true";
+    if (this != optionsSelected[0]){
+        optionsSelected[0].attributes[2].value = "false";
+    }
+    reloadPhotosSection();
 }
 
 function reloadPhotosSection(){
@@ -101,15 +107,15 @@ function addPictures(jsonObj){
     const foundPictures = media.filter(element => element.photographerId == url_id);
     photographPictures = foundPictures;
 
-    if(options[0].children[0].checked == true){
+    if(options[0].attributes[2].value == "true"){
         photographPictures.sort((a, b) => b.likes - a.likes);
-    } else if (options[1].children[0].checked == true){
+    } else if (options[1].attributes[2].value == "true"){
         photographPictures.sort(function(a, b){
             let aValue = Date.parse(a.date);
             let bValue = Date.parse(b.date);
             return aValue - bValue;
         });
-    } else if (options[2].children[0].checked == true) {
+    } else if (options[2].attributes[2].value == "true") {
         photographPictures.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
     }
 
@@ -179,9 +185,9 @@ function addPictures(jsonObj){
 
 // ADDING TOTAL OF LIKES
 function addAsideLikes(){
-    let newP = document.createElement('p');
+    let newP = document.createElement('h2');
     likes__infos.appendChild(newP);
-    let newPBis = document.createElement('p');
+    let newPBis = document.createElement('h3');
     likes__infos.appendChild(newPBis);
     newP.innerHTML = totalLikes + ' <i class="fas fa-heart"></i>';
     newPBis.textContent = photographPrice + '€ / jour';

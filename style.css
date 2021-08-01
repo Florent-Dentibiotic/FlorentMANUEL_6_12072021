@@ -20,7 +20,6 @@ body {
 .btn__secondary {
   background-color: #D3573C;
   width: 182px;
-  height: 30px;
   font-weight: 700;
   border-radius: 5px;
   border: none;
@@ -53,17 +52,20 @@ body {
   position: relative;
   border: none;
 }
-.classify label, .classify legend {
+.classify label, .classify legend, .classify h2 {
   font-size: 18px;
+  font-weight: 700;
   margin-right: 1em;
 }
 .classify .classify__options {
+  list-style: none;
   background-color: #901C1C;
   border-radius: 5px;
   position: absolute;
   left: 7em;
-  top: -2em;
+  top: -1em;
   z-index: 5;
+  padding: 0;
 }
 .classify .classify__options i {
   position: absolute;
@@ -73,9 +75,10 @@ body {
   font-weight: 700;
   color: #fff;
 }
-.classify .options {
+.classify li {
   font-size: 18px;
   font-weight: 700;
+  text-align: start;
   color: #fff;
   background-color: #901C1C;
   border: none;
@@ -87,9 +90,6 @@ body {
   -moz-box-sizing: border-box;
   /* Pour tous les navigateurs Gecko */
   box-sizing: border-box;
-}
-.classify input {
-  display: none;
 }
 .classify hr {
   width: 150px;
@@ -134,6 +134,8 @@ body {
   left: 50%;
   margin-left: -91px;
   z-index: 10;
+  text-align: center;
+  padding: 0.4em;
 }
 .header__nav {
   width: 700px;
@@ -549,6 +551,10 @@ body {
   position: fixed;
   bottom: 0;
   right: 1.5em;
+}
+.likes h2, .likes h3 {
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .photos {

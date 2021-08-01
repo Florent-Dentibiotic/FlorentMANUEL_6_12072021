@@ -28,7 +28,7 @@
 
             </article>
             <div class="contact">
-                <button class="btn__primary open__modal">Contactez-moi</button>
+                <button class="btn__primary open__modal" alt="Contact Me">Contactez-moi</button>
             </div>
             <img class="intro__picture">
             <div class="contact__modal">
@@ -36,22 +36,22 @@
                     <div class="contact__modal__box__title">
                         <h1></h1><i class="fas fa-times quit__modal"></i>
                     </div>
-                    <form action="" method="post" class="form-contact">
+                    <form action="Contact" method="post" class="form-contact">
                         <div class="form-contact">
                           <label for="first-name">Prénom</label><br>
-                          <input cols="30" type="text" name="first-name" id="first-name" size="81">
+                          <input type="text" name="first-name" id="first-name" size="81">
                         </div>
                         <div class="form-contact">
                             <label for="name">Nom</label><br>
-                            <input cols="30" type="text" name="name" id="name" size="81">
+                            <input type="text" name="name" id="name" size="81">
                         </div>
                         <div class="form-contact">
                           <label for="email">Email</label><br>
-                          <input cols="30" type="email" name="email" id="email" size="81">
+                          <input type="email" name="email" id="email" size="81">
                         </div>
                         <div class="form-contact">
                             <label for="message">Votre message</label><br>
-                            <input cols="30" rows="5" type="text" name="message" id="message" size="81">
+                            <input type="text" name="message" id="message" size="81">
                         </div>
                         <div class="form-contact">
                           <input class="btn__primary" type="submit" value="Envoyer">
@@ -63,27 +63,17 @@
             </div>
         </section>
 
-        <fieldset class="classify">
-            <legend>Trier par</legend>
-
-            <div class="classify__options">
-                <i class="chevron fas fa-chevron-down"></i>
-                <div class="options d-block">
-                    <input type="radio" id="popularity" name="classification" value="popularity" checked>
-                    <label for="popularity">Popularité</label>
-                </div>
+        <section class="classify">
+            <h2>Trier par</h2>
+            <ul class="classify__options">
+                <i class="chevron fas fa-chevron-down" aria-haspopup=”listbox” role=”button” aria-expanded></i>
+                <li role=”listbox” aria-activedescendant aria-selected="true" aria-labelledby="popularity" id="popularity" class="d-block options">Popularité</li>
                 <hr class="d-none">
-                <div class="options d-none">
-                    <input type="radio" id="date" name="classification" value="date">
-                    <label for="date">Date</label>
-                </div>
+                <li role=”listbox” aria-activedescendant aria-selected="false" aria-labelledby="date" id="date" class="d-none options">Date</li>
                 <hr class="d-none">
-                <div class="options d-none">
-                    <input type="radio" id="title" name="classification" value="title">
-                    <label for="title">Titre</label>
-                </div>
-            </div>
-        </fieldset>
+                <li role=”listbox” aria-activedescendant aria-selected="false" aria-labelledby="title" id="title" class="d-none options">Titre</li>
+            </ul>
+        </section>
 
         <aside class="likes">
 
@@ -95,9 +85,9 @@
 
         <section class="photos__modal">
             <div class="photos__modal__lightbox">
-                <i class="fas fa-times quit__photo__modal"></i>
-                <i class="fas fa-chevron-left"></i>
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-times quit__photo__modal" alt="Close Dialog"></i>
+                <i class="fas fa-chevron-left" alt="Previous image"></i>
+                <i class="fas fa-chevron-right" alt="Next image"></i>
                 <div class="media">
                     
                 </div>

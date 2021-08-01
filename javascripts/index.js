@@ -33,7 +33,7 @@ function createArticle(jsonObj) {
         let newImage = document.createElement('img');
         newLink.appendChild(newImage);
         let newH2 = document.createElement('h2');
-        newArticle.appendChild(newH2);
+        newLink.appendChild(newH2);
         let newH3 = document.createElement('h3');
         newArticle.appendChild(newH3);
         let newH4 = document.createElement('h4');
@@ -46,7 +46,7 @@ function createArticle(jsonObj) {
         // FOR EACH PHOTOGRAPHERS DISPLAYING ALL INFORMATIONS
         newLink.setAttribute("href", ("photographers.html?" + photographes[i].id));
         newImage.setAttribute("src", ("./imgs/Sample Photos/Photographers ID Photos/" + photographes[i].portrait));
-        newImage.setAttribute("alt", photographes[i].name);
+        newImage.setAttribute("alt", " ");
         newH2.textContent = photographes[i].name;
         newH3.textContent = photographes[i].city + ', ' + photographes[i].country;
         newH4.textContent = photographes[i].tagline;
