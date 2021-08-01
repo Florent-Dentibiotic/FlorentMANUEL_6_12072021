@@ -136,7 +136,7 @@ function addPictures(jsonObj){
             newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
             newSource.setAttribute("poster", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].poster));
             newSource.setAttribute("video", "video/mp4");
-            newSource.setAttribute("alt", foundPictures[i].title + ", closeup view");
+            newSource.setAttribute("alt", foundPictures[i].title + ", closeup view and launch video");
         //ELSE IF ITS A PHOTO
         } else {
             let newImage = document.createElement('img');
