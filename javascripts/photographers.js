@@ -19,9 +19,9 @@ let options = document.querySelectorAll('.options');
 let thematicBreak = document.querySelectorAll('hr');
 let chevron = document.querySelector('.chevron');
 let optionsArray = Array.from(options);
-let optionsSelected = optionsArray.filter(element => element.attributes[2].value == "true");
+let optionsSelected = optionsArray.filter(element => element.attributes[3].value == "true");
 
-// EVENT LISTENER FOR CLASSIFYING PICTURES
+//***EVENT LISTENER FOR CLASSIFYING PICTURES***
 classifyOptions.addEventListener('mouseover', radioBtnVisible);
 classifyOptions.addEventListener('mouseout', radioBtnInvisible);
 optionsArray.forEach(element => element.addEventListener('click', changeAriaSelectedValue));
@@ -33,17 +33,17 @@ function radioBtnVisible(){
 };
 
 function radioBtnInvisible(){
-    let optionsNotSelected = optionsArray.filter(element => element.attributes[2].value != "true");
+    let optionsNotSelected = optionsArray.filter(element => element.attributes[3].value != "true");
     optionsNotSelected.forEach(element => element.classList.replace("d-block", "d-none"));
     thematicBreak.forEach(element => element.classList.replace("d-block", "d-none"));
     chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
 }
 
 function changeAriaSelectedValue(){
-    let optionsSelected = optionsArray.filter(element => element.attributes[2].value == "true");
-    this.attributes[2].value = "true";
+    let optionsSelected = optionsArray.filter(element => element.attributes[3].value == "true");
+    this.attributes[3].value = "true";
     if (this != optionsSelected[0]){
-        optionsSelected[0].attributes[2].value = "false";
+        optionsSelected[0].attributes[3].value = "false";
     }
     reloadPhotosSection();
 }
@@ -63,7 +63,7 @@ request.onload = function() {
     addAsideLikes();
 }
 
-// FUNCTION TO CREATE A NEW INTRODUCTION OF THE SELECTED ARTIST
+//***FUNCTION TO CREATE A NEW INTRODUCTION OF THE SELECTED ARTIST***
 function createIntro(jsonObj) {
     //FINDING THE GOOD PHOTOGRAPHER WITH IS ID
     let photographes = jsonObj['photographers'];
@@ -101,21 +101,22 @@ function createIntro(jsonObj) {
     contactTitle.childNodes[1].innerHTML = `Contactez-moi <br>${thisPhotographe.name}`;
 }
 
-//FUNCTION TO ADD PICTURES OF THE SELECTED ARTIST
+//***FUNCTION TO ADD PICTURES OF THE SELECTED ARTIST***
 function addPictures(jsonObj){
     let media = jsonObj['media'];
     const foundPictures = media.filter(element => element.photographerId == url_id);
     photographPictures = foundPictures;
 
-    if(options[0].attributes[2].value == "true"){
+    // SORTING BY POPULARITY/DATE/TITLE
+    if(options[0].attributes[3].value == "true"){
         photographPictures.sort((a, b) => b.likes - a.likes);
-    } else if (options[1].attributes[2].value == "true"){
+    } else if (options[1].attributes[3].value == "true"){
         photographPictures.sort(function(a, b){
             let aValue = Date.parse(a.date);
             let bValue = Date.parse(b.date);
             return aValue - bValue;
         });
-    } else if (options[2].attributes[2].value == "true") {
+    } else if (options[2].attributes[3].value == "true") {
         photographPictures.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
     }
 
@@ -170,6 +171,7 @@ function addPictures(jsonObj){
         newI.setAttribute("aria-label", "likes");
     }
 
+    // PREPARING ASIDE INNER HTML
     const allFas = document.querySelectorAll('.fa-heart');
     let hearts = Array.from(allFas);
     hearts.forEach(element => element.addEventListener("click", addALike));
@@ -177,13 +179,15 @@ function addPictures(jsonObj){
         let someLikes = parseInt(hearts[i].previousSibling.textContent, 10);
         totalLikes = totalLikes + someLikes;
     }
+    photographPrice = thisPhotographe.price;
+
+    // EVENT LISTENER FOR OPENING MODAL
     allImages = document.querySelectorAll('.img-label');
     allMedias = (Array.from(allImages)).map(x => x.previousElementSibling);
     allMedias.forEach(element => element.addEventListener('click', openPhotosModal));
-    photographPrice = thisPhotographe.price;
 }
 
-// ADDING TOTAL OF LIKES
+// ADDING TOTAL OF LIKES FOR ASIDE ELEMENT
 function addAsideLikes(){
     let newP = document.createElement('h2');
     likes__infos.appendChild(newP);

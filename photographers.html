@@ -65,13 +65,13 @@
 
         <section class="classify">
             <h2>Trier par</h2>
-            <ul class="classify__options">
-                <i class="chevron fas fa-chevron-down" aria-haspopup=”listbox” role=”button” aria-expanded="false" id="listbox"></i>
-                <li role=”listbox1” aria-activedescendant="date" aria-selected="true" aria-labelledby="listbox" id="popularity" class="d-block options">Popularité</li>
+            <ul class="classify__options" aria-haspopup=”listbox” role=”button” aria-expanded="false" id="listbox" aria-activedescendant="popularity">
+                <i class="chevron fas fa-chevron-down"></i>
+                <li role=”listbox1” value="true" id="popularity" class="d-block options">Popularité</li>
                 <hr class="d-none">
-                <li role=”listbox2” aria-activedescendant="title" aria-selected="false" aria-labelledby="listbox" id="date" class="d-none options">Date</li>
+                <li role=”listbox2” value="false" id="date" class="d-none options">Date</li>
                 <hr class="d-none">
-                <li role=”listbox3” aria-activedescendant="popularity" aria-selected="false" aria-labelledby="listbox" id="title" class="d-none options">Titre</li>
+                <li role=”listbox3” value="false" id="title" class="d-none options">Titre</li>
             </ul>
         </section>
 
