@@ -432,7 +432,7 @@ body {
 }
 .autors article h3 {
   font-size: 13px;
-  color: #D3573C;
+  color: #901C1C;
   font-weight: 400;
   line-height: 17px;
 }
@@ -576,6 +576,10 @@ body {
 .photos article .fas:hover {
   cursor: pointer;
 }
+.photos h2, .photos h3 {
+  font-size: 24px;
+  font-weight: 400;
+}
 .photos img {
   width: 440px;
   height: 440px;
@@ -635,6 +639,10 @@ body {
   .photos article .img-label {
     width: 335px;
     font-size: 14px;
+  }
+  .photos h2, .photos h3 {
+    font-size: 14px;
+    font-weight: 400;
   }
   .photos img {
     width: 335px;

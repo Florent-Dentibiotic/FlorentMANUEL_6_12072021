@@ -147,7 +147,7 @@ function addPictures(jsonObj){
 
         let newDiv = document.createElement('div');
         newArticle.appendChild(newDiv);
-        let newH3 = document.createElement('h3');
+        let newH3 = document.createElement('h2');
         newDiv.appendChild(newH3);
         let newH3bis = document.createElement('h3');
         newDiv.appendChild(newH3bis);
