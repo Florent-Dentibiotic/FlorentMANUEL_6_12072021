@@ -46,57 +46,6 @@ body {
     font-size: 18px;
   }
 }
-.classify {
-  margin: 2em;
-  display: flex;
-  position: relative;
-  border: none;
-}
-.classify label, .classify legend, .classify h2 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-right: 1em;
-}
-.classify .classify__options {
-  list-style: none;
-  background-color: #901C1C;
-  border-radius: 5px;
-  position: absolute;
-  left: 7em;
-  top: -1em;
-  z-index: 5;
-  padding: 0;
-}
-.classify .classify__options i {
-  position: absolute;
-  left: 7.5em;
-  top: 1em;
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-}
-.classify li {
-  font-size: 18px;
-  font-weight: 700;
-  text-align: start;
-  color: #fff;
-  background-color: #901C1C;
-  border: none;
-  border-radius: 5px;
-  padding: 1em;
-  width: 170px;
-  -webkit-box-sizing: border-box;
-  /* Pour les anciennes versions des navigateurs WebKit */
-  -moz-box-sizing: border-box;
-  /* Pour tous les navigateurs Gecko */
-  box-sizing: border-box;
-}
-.classify hr {
-  width: 150px;
-  margin: 0 auto;
-  color: #fff;
-}
-
 .tag {
   font-size: 12px;
   color: #901C1C;
@@ -413,6 +362,57 @@ body {
     max-width: 290px;
   }
 }
+.classify {
+  margin: 2em;
+  display: flex;
+  position: relative;
+  border: none;
+}
+.classify h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 1em;
+}
+.classify .classify__options {
+  list-style: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  position: absolute;
+  left: 7em;
+  top: -1em;
+  z-index: 5;
+  padding: 0;
+}
+.classify .classify__options i {
+  position: absolute;
+  left: 7.5em;
+  top: 1em;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+.classify li {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: start;
+  color: #fff;
+  background-color: #901C1C;
+  border: none;
+  border-radius: 5px;
+  padding: 1em;
+  width: 170px;
+  -webkit-box-sizing: border-box;
+  /* Pour les anciennes versions des navigateurs WebKit */
+  -moz-box-sizing: border-box;
+  /* Pour tous les navigateurs Gecko */
+  box-sizing: border-box;
+}
+.classify hr {
+  width: 150px;
+  margin: 0 auto;
+  color: #fff;
+}
+
 .autors article {
   text-align: center;
 }
