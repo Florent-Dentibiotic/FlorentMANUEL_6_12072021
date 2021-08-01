@@ -16,7 +16,8 @@ const classifyOptions = document.querySelector('.classify__options');
 let options = document.querySelectorAll('.options');
 let thematicBreak = document.querySelectorAll('hr');
 let chevron = document.querySelector('.chevron');
-let optionsArray = Array.from(options);    
+let optionsArray = Array.from(options);
+
 // radio elements for classification
 let popularityClassification = optionsArray[0].children[0];
 let dateClassification = optionsArray[1].children[0];
@@ -135,11 +136,13 @@ function addPictures(jsonObj){
             newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
             newSource.setAttribute("poster", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].poster));
             newSource.setAttribute("video", "video/mp4");
+            newSource.setAttribute("alt", foundPictures[i].title + ", closeup view");
         //ELSE IF ITS A PHOTO
         } else {
             let newImage = document.createElement('img');
             newArticle.appendChild(newImage);
             newImage.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].image));
+            newImage.setAttribute("alt", foundPictures[i].title + ", closeup view");
         }
 
         let newDiv = document.createElement('div');
