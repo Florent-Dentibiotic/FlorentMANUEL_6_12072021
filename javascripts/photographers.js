@@ -19,7 +19,6 @@ let options = document.querySelectorAll('.options');
 let thematicBreak = document.querySelectorAll('hr');
 let chevron = document.querySelector('.chevron');
 let optionsArray = Array.from(options);
-let optionsSelected = optionsArray.filter(element => element.attributes[3].value == "true");
 
 //***EVENT LISTENER FOR CLASSIFYING PICTURES***
 classifyOptions.addEventListener('mouseover', radioBtnVisible);
@@ -131,11 +130,13 @@ function addPictures(jsonObj){
         let newArticle = document.createElement('article');
         photos.appendChild(newArticle);
         newArticle.classList.add('article');
+        let newButton = document.createElement('button');
+        newArticle.appendChild(newButton);
 
         //IF ITS A VIDEO
         if(foundPictures[i].image === undefined){
             let newVideo = document.createElement('video');
-            newArticle.appendChild(newVideo);
+            newButton.appendChild(newVideo);
             let newSource = document.createElement('source');
             newVideo.appendChild(newSource);
 
@@ -147,7 +148,7 @@ function addPictures(jsonObj){
         //ELSE IF ITS A PHOTO
         } else {
             let newImage = document.createElement('img');
-            newArticle.appendChild(newImage);
+            newButton.appendChild(newImage);
             newImage.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].image));
             newImage.setAttribute("alt", foundPictures[i].title + ", closeup view");
         }

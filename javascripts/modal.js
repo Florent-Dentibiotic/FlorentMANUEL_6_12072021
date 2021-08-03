@@ -31,8 +31,7 @@ document.addEventListener('keydown', event => {
 });
 
 function openPhotosModal(){
-    if(mediaDiv.childNodes[0].localName == "img" || mediaDiv.childNodes[0].localName == "video"){
-        mediaDiv.removeChild(mediaDiv.childNodes[0]);
+    if(mediaDiv.childNodes[0].firstChild != null && (mediaDiv.childNodes[0].firstChild.localName == "img" || mediaDiv.childNodes[0].firstChild.localName == "video")){
         photoModal.firstElementChild.removeChild(photoModal.firstElementChild.lastElementChild);
     }
     photoModal.style.display = 'block';
@@ -40,8 +39,8 @@ function openPhotosModal(){
     let newH3 = document.createElement('h3');
     photoModal.firstElementChild.appendChild(newH3);
     newH3.textContent = this.parentElement.children[1].firstChild.innerHTML;
-    if(mediaDiv.firstChild.localName == "video"){
-        mediaDiv.firstChild.setAttribute("controls", "");
+    if(mediaDiv.firstChild.firstChild.localName == "video"){
+        mediaDiv.firstChild.firstChild.setAttribute("controls", "");
     }
 };
 
@@ -50,35 +49,37 @@ function closePhotoModal(){
 };
 
 function launchPreviousMedia(){
-    launchMedia("left");
+    launchMedia(-1);
 };
 
 function launchNextMedia(){
-    launchMedia("right");
+    launchMedia(1);
 };
 
 function launchMedia(direction){
-    if(mediaDiv.firstChild.localName == "video"){
-        mediaDiv.firstChild.removeAttribute("controls", "");
+    if(mediaDiv.firstChild.firstChild.localName == "video"){
+        mediaDiv.firstChild.firstChild.removeAttribute("controls", "");
     }
     let mediaIndex = allMedias.findIndex(element => element.outerHTML == mediaDiv.innerHTML)
-    if(direction == "right"){
-        if((mediaIndex+1) < allMedias.length){
-            mediaDiv.innerHTML = allMedias[mediaIndex+1].outerHTML;
-            photoModal.firstElementChild.lastChild.textContent = allMedias[mediaIndex+1].parentElement.children[1].firstChild.innerHTML;
-            if(mediaDiv.firstChild.localName == "video"){
-                mediaDiv.firstChild.setAttribute("controls", "");
+    let nextMedia = mediaIndex + direction;
+
+    if(nextMedia < allMedias.length && nextMedia > 0){
+        mediaDiv.innerHTML = allMedias[nextMedia].outerHTML;
+        photoModal.firstElementChild.lastChild.textContent = allMedias[nextMedia].parentElement.children[1].firstChild.innerHTML;
+            if(mediaDiv.firstChild.firstChild.localName == "video"){
+                mediaDiv.firstChild.firstChild.setAttribute("controls", "");
             }
-    } else if(direction == "left"){
-        if((mediaIndex-1) >= 0){
-            mediaDiv.innerHTML = allMedias[mediaIndex-1].outerHTML;
-            photoModal.firstElementChild.lastChild.textContent = allMedias[mediaIndex-1].parentElement.children[1].firstChild.innerHTML;
-            if(mediaDiv.firstChild.localName == "video"){
-                mediaDiv.firstChild.setAttribute("controls", "");
+    } 
+    
+    else if(nextMedia >= 0 && nextMedia < allMedias.length){
+        mediaDiv.innerHTML = allMedias[nextMedia].outerHTML;
+        photoModal.firstElementChild.lastChild.textContent = allMedias[nextMedia].parentElement.children[1].firstChild.innerHTML;
+            if(mediaDiv.firstChild.firstChild.localName == "video"){
+                mediaDiv.firstChild.firstChild.setAttribute("controls", "");
             }
-        }
-    } else {
+    } 
+    
+    else {
         photoModal.style.display = 'none';
-        }
     }
 };

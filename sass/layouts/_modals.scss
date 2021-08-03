@@ -144,6 +144,10 @@
         max-width: 950px;
         margin: auto;
     }
+    button{
+        background-color: transparent;
+        border: none;
+    }
 }
 
 @media screen and (max-width: 768px) {

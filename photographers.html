@@ -36,22 +36,22 @@
                     <div class="contact__modal__box__title">
                         <h1></h1><i class="fas fa-times quit__modal"></i>
                     </div>
-                    <form action="Contact" method="post" class="form-contact">
+                    <form action="" method="post" class="form-contact">
                         <div class="form-contact">
                           <label for="first-name">Prénom</label><br>
-                          <input type="text" name="first-name" id="first-name" size="81">
+                          <input type="text" name="first-name" id="first-name">
                         </div>
                         <div class="form-contact">
                             <label for="name">Nom</label><br>
-                            <input type="text" name="name" id="name" size="81">
+                            <input type="text" name="name" id="name">
                         </div>
                         <div class="form-contact">
                           <label for="email">Email</label><br>
-                          <input type="email" name="email" id="email" size="81">
+                          <input type="email" name="email" id="email">
                         </div>
                         <div class="form-contact">
                             <label for="message">Votre message</label><br>
-                            <input type="text" name="message" id="message" size="81">
+                            <input type="text" name="message" id="message">
                         </div>
                         <div class="form-contact">
                           <input class="btn__primary" type="submit" value="Envoyer">
@@ -65,13 +65,13 @@
 
         <section class="classify">
             <h2>Trier par</h2>
-            <ul class="classify__options" aria-haspopup=”listbox” role=”button” aria-expanded="false" id="listbox" aria-activedescendant="popularity">
+            <ul class="classify__options" aria-haspopup="true" aria-expanded="false" role=”button” aria-expanded="false" id="listbox" aria-activedescendant="popularity">
                 <i class="chevron fas fa-chevron-down"></i>
-                <li role=”listbox1” value="true" id="popularity" class="d-block options">Popularité</li>
+                <li role=”listbox1” id="popularity" class="d-block options" value="true">Popularité</li>
                 <hr class="d-none">
-                <li role=”listbox2” value="false" id="date" class="d-none options">Date</li>
+                <li role=”listbox2” id="date" class="d-none options" value="false">Date</li>
                 <hr class="d-none">
-                <li role=”listbox3” value="false" id="title" class="d-none options">Titre</li>
+                <li role=”listbox3” id="title" class="d-none options" value="false">Titre</li>
             </ul>
         </section>
 
@@ -85,9 +85,9 @@
 
         <section class="photos__modal">
             <div class="photos__modal__lightbox">
-                <i class="fas fa-times quit__photo__modal" alt="Close Dialog"></i>
-                <i class="fas fa-chevron-left" alt="Previous image"></i>
-                <i class="fas fa-chevron-right" alt="Next image"></i>
+                <i class="fas fa-times quit__photo__modal" aria-label="Close Dialog"></i>
+                <i class="fas fa-chevron-left" aria-label="Previous image"></i>
+                <i class="fas fa-chevron-right" aria-label="Next image"></i>
                 <div class="media">
                     
                 </div>

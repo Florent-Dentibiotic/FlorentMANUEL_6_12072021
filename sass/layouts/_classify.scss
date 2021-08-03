@@ -39,6 +39,9 @@
         -webkit-box-sizing: border-box; /* Pour les anciennes versions des navigateurs WebKit */
         -moz-box-sizing: border-box; /* Pour tous les navigateurs Gecko */
         box-sizing: border-box;
+        &:active{
+            background-color: $secondary;
+        }
     }
     hr{
         width: 150px;
