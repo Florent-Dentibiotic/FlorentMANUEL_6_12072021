@@ -25,6 +25,9 @@ body {
   border: none;
   display: none;
 }
+.btn__secondary a {
+  color: #000;
+}
 .btn__primary {
   background-color: #901C1C;
   color: #fff;
@@ -107,7 +110,6 @@ body {
 }
 .header a {
   text-decoration: none;
-  color: #000;
 }
 
 @media screen and (max-width: 768px) {
