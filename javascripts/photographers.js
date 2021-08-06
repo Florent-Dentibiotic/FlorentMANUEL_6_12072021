@@ -23,7 +23,24 @@ let optionsArray = Array.from(options);
 //***EVENT LISTENER FOR CLASSIFYING PICTURES***
 classifyOptions.addEventListener('mouseover', radioBtnVisible);
 classifyOptions.addEventListener('mouseout', radioBtnInvisible);
+classifyOptions.addEventListener('focusin', radioBtnVisible);
+options[2].addEventListener('focusout', radioBtnInvisible);
 optionsArray.forEach(element => element.addEventListener('click', changeAriaSelectedValue));
+document.addEventListener('keydown', event => {
+    if(options[0].classList[0]=='d-block' && options[1].classList[0]=='d-block' && options[2].classList[0]=='d-block'){
+        if(event.code == "Enter"){
+            console.log(window.getSelection().focusNode);
+            let optionsSelected = optionsArray.filter(element => element.attributes[4].value == "true");
+            window.getSelection().focusNode.attributes[4].value = "true";
+            if (this != optionsSelected[0]){
+                optionsSelected[0].attributes[4].value = "false";
+            }
+            reloadPhotosSection();
+        } else if(event.code == "ArrowUp"){
+            options[0].focus();
+        }
+    }
+});
 
 function radioBtnVisible(){
     options.forEach(element => element.classList.replace("d-none", "d-block"));
@@ -32,17 +49,17 @@ function radioBtnVisible(){
 };
 
 function radioBtnInvisible(){
-    let optionsNotSelected = optionsArray.filter(element => element.attributes[3].value != "true");
+    let optionsNotSelected = optionsArray.filter(element => element.attributes[4].value != "true");
     optionsNotSelected.forEach(element => element.classList.replace("d-block", "d-none"));
     thematicBreak.forEach(element => element.classList.replace("d-block", "d-none"));
     chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
 }
 
 function changeAriaSelectedValue(){
-    let optionsSelected = optionsArray.filter(element => element.attributes[3].value == "true");
-    this.attributes[3].value = "true";
+    let optionsSelected = optionsArray.filter(element => element.attributes[4].value == "true");
+    this.attributes[4].value = "true";
     if (this != optionsSelected[0]){
-        optionsSelected[0].attributes[3].value = "false";
+        optionsSelected[0].attributes[4].value = "false";
     }
     reloadPhotosSection();
 }
@@ -107,15 +124,15 @@ function addPictures(jsonObj){
     photographPictures = foundPictures;
 
     // SORTING BY POPULARITY/DATE/TITLE
-    if(options[0].attributes[3].value == "true"){
+    if(options[0].attributes[4].value == "true"){
         photographPictures.sort((a, b) => b.likes - a.likes);
-    } else if (options[1].attributes[3].value == "true"){
+    } else if (options[1].attributes[4].value == "true"){
         photographPictures.sort(function(a, b){
             let aValue = Date.parse(a.date);
             let bValue = Date.parse(b.date);
             return aValue - bValue;
         });
-    } else if (options[2].attributes[3].value == "true") {
+    } else if (options[2].attributes[4].value == "true") {
         photographPictures.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
     }
 

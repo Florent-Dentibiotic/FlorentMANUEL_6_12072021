@@ -21,13 +21,17 @@ nextMedia.addEventListener('click', launchNextMedia);
 document.addEventListener('keydown', event => {
     if(event.code == "ArrowRight"){
         if(photoModal.style.display == 'block'){
-            launchNextMedia()
+            launchNextMedia();
         }
     } else if (event.code == "ArrowLeft"){
         if(photoModal.style.display == 'block'){
-            launchPreviousMedia()
+            launchPreviousMedia();
         }
-    }
+    } else if (event.code == "Escape"){
+        if(photoModal.style.display == 'block'){
+            closePhotoModal();
+        }
+    } 
 });
 
 function openPhotosModal(){

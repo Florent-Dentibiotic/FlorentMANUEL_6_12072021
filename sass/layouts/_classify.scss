@@ -24,6 +24,7 @@
             font-size: 18px;
             font-weight: 700;
             color: $white;
+            z-index: 5;
         }
     }
     li{
@@ -39,8 +40,11 @@
         -webkit-box-sizing: border-box; /* Pour les anciennes versions des navigateurs WebKit */
         -moz-box-sizing: border-box; /* Pour tous les navigateurs Gecko */
         box-sizing: border-box;
-        &:active{
+        &:hover{
             background-color: $secondary;
+        }
+        &:active{
+            background-color: $primary;
         }
     }
     hr{

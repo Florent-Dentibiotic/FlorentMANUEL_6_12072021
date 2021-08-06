@@ -396,6 +396,7 @@ body {
   font-size: 18px;
   font-weight: 700;
   color: #fff;
+  z-index: 5;
 }
 .classify li {
   font-size: 18px;
@@ -413,8 +414,11 @@ body {
   /* Pour tous les navigateurs Gecko */
   box-sizing: border-box;
 }
-.classify li:active {
+.classify li:hover {
   background-color: #D3573C;
+}
+.classify li:active {
+  background-color: #901C1C;
 }
 .classify hr {
   width: 150px;
