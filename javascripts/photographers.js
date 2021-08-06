@@ -2,13 +2,11 @@
 const url_id = window.location.search.slice(1);
 
 // DOM ELEMENTS
-const intro = document.querySelector('.intro');
 const presentation = document.querySelector('.presentation');
 const picture = document.querySelector('.intro__picture');
 const contactTitle = document.querySelector('.contact__modal__box__title');
 const photos = document.querySelector('.photos');
 const likes__infos = document.querySelector('.likes');
-const main = document.querySelector('main');
 let allMedias = [];
 let totalLikes = 0;
 let photographPrice = 0;
