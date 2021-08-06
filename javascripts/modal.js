@@ -7,14 +7,14 @@ const mediaDiv = document.querySelector('.media');
 const previousMedia = document.querySelector('.fa-chevron-left');
 const nextMedia = document.querySelector('.fa-chevron-right');
 
-openModal.addEventListener('click', function launchModal(){
-    contactModal.style.display = "block";
-});
-quitModal.addEventListener('click', closeContactModal());
-
 function closeContactModal(){
     contactModal.style.display = "none";
 };
+
+openModal.addEventListener('click', function launchModal(){
+    contactModal.style.display = "block";
+});
+quitModal.addEventListener('click', closeContactModal);
 
 // PHOTO MODAL EVENT LISTENER
 quitPhotoModal.addEventListener('click', closePhotoModal);

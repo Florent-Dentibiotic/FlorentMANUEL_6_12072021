@@ -599,6 +599,10 @@ body {
   font-size: 24px;
   font-weight: 400;
 }
+.photos h3 button {
+  color: #901C1C;
+  font-size: 24px;
+}
 .photos img {
   width: 440px;
   height: 440px;
@@ -666,6 +670,9 @@ body {
   .photos h2, .photos h3 {
     font-size: 14px;
     font-weight: 400;
+  }
+  .photos h3 button {
+    font-size: 14px;
   }
   .photos img {
     width: 335px;

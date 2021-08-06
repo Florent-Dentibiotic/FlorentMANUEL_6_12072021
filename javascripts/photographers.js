@@ -177,9 +177,10 @@ function addPictures(jsonObj){
         newDiv.classList.add('img-label');
         newH3.textContent = foundPictures[i].title;
         newH3bis.textContent = foundPictures[i].likes + " ";
+        //newH3bis.setAttribute("tabindex", 0);
 
         // ADDING THE HEART FOR LIKES
-        let newI = document.createElement('i');
+        let newI = document.createElement('button');
         newH3bis.appendChild(newI);
         newI.classList.add('fas');
         newI.classList.add('fa-heart');
