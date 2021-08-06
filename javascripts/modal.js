@@ -9,10 +9,12 @@ const nextMedia = document.querySelector('.fa-chevron-right');
 
 openModal.addEventListener('click', function launchModal(){
     contactModal.style.display = "block";
-})
-quitModal.addEventListener('click', function closeModal(){
+});
+quitModal.addEventListener('click', closeContactModal());
+
+function closeContactModal(){
     contactModal.style.display = "none";
-})
+};
 
 // PHOTO MODAL EVENT LISTENER
 quitPhotoModal.addEventListener('click', closePhotoModal);
@@ -30,6 +32,9 @@ document.addEventListener('keydown', event => {
     } else if (event.code == "Escape"){
         if(photoModal.style.display == 'block'){
             closePhotoModal();
+        }
+        if(contactModal.style.display == "block"){
+            closeContactModal();
         }
     } 
 });

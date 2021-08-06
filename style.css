@@ -398,7 +398,7 @@ body {
   color: #fff;
   z-index: 5;
 }
-.classify li {
+.classify button {
   font-size: 18px;
   font-weight: 700;
   text-align: start;
@@ -414,10 +414,10 @@ body {
   /* Pour tous les navigateurs Gecko */
   box-sizing: border-box;
 }
-.classify li:hover {
+.classify button:hover {
   background-color: #D3573C;
 }
-.classify li:active {
+.classify button:active {
   background-color: #901C1C;
 }
 .classify hr {

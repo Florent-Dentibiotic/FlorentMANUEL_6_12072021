@@ -19,24 +19,17 @@ let options = document.querySelectorAll('.options');
 let thematicBreak = document.querySelectorAll('hr');
 let chevron = document.querySelector('.chevron');
 let optionsArray = Array.from(options);
+let optionsSelected = [];
 
 //***EVENT LISTENER FOR CLASSIFYING PICTURES***
 classifyOptions.addEventListener('mouseover', radioBtnVisible);
 classifyOptions.addEventListener('mouseout', radioBtnInvisible);
 classifyOptions.addEventListener('focusin', radioBtnVisible);
-options[2].addEventListener('focusout', radioBtnInvisible);
+//options[2].addEventListener('focusout', radioBtnInvisible);
 optionsArray.forEach(element => element.addEventListener('click', changeAriaSelectedValue));
 document.addEventListener('keydown', event => {
     if(options[0].classList[0]=='d-block' && options[1].classList[0]=='d-block' && options[2].classList[0]=='d-block'){
-        if(event.code == "Enter"){
-            console.log(window.getSelection().focusNode);
-            let optionsSelected = optionsArray.filter(element => element.attributes[4].value == "true");
-            window.getSelection().focusNode.attributes[4].value = "true";
-            if (this != optionsSelected[0]){
-                optionsSelected[0].attributes[4].value = "false";
-            }
-            reloadPhotosSection();
-        } else if(event.code == "ArrowUp"){
+        if(event.code == "ArrowUp"){
             options[0].focus();
         }
     }
@@ -49,18 +42,19 @@ function radioBtnVisible(){
 };
 
 function radioBtnInvisible(){
-    let optionsNotSelected = optionsArray.filter(element => element.attributes[4].value != "true");
+    let optionsNotSelected = optionsArray.filter(element => element.attributes[2].value != "true");
     optionsNotSelected.forEach(element => element.classList.replace("d-block", "d-none"));
     thematicBreak.forEach(element => element.classList.replace("d-block", "d-none"));
     chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
 }
 
 function changeAriaSelectedValue(){
-    let optionsSelected = optionsArray.filter(element => element.attributes[4].value == "true");
-    this.attributes[4].value = "true";
+    optionsSelected = optionsArray.filter(element => element.attributes[2].value == "true");
+    this.attributes[2].value = "true";
     if (this != optionsSelected[0]){
-        optionsSelected[0].attributes[4].value = "false";
+        optionsSelected[0].attributes[2].value = "false";
     }
+    radioBtnInvisible();
     reloadPhotosSection();
 }
 
@@ -121,19 +115,18 @@ function createIntro(jsonObj) {
 function addPictures(jsonObj){
     let media = jsonObj['media'];
     const foundPictures = media.filter(element => element.photographerId == url_id);
-    photographPictures = foundPictures;
 
     // SORTING BY POPULARITY/DATE/TITLE
-    if(options[0].attributes[4].value == "true"){
-        photographPictures.sort((a, b) => b.likes - a.likes);
-    } else if (options[1].attributes[4].value == "true"){
-        photographPictures.sort(function(a, b){
+    if(options[0].attributes[2].value == "true"){
+        foundPictures.sort((a, b) => b.likes - a.likes);
+    } else if (options[1].attributes[2].value == "true"){
+        foundPictures.sort(function(a, b){
             let aValue = Date.parse(a.date);
             let bValue = Date.parse(b.date);
             return aValue - bValue;
         });
-    } else if (options[2].attributes[4].value == "true") {
-        photographPictures.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
+    } else if (options[2].attributes[2].value == "true") {
+        foundPictures.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
     }
 
     //FINDING THE GOOD PHOTOGRAPHER WITH IS ID
@@ -161,6 +154,8 @@ function addPictures(jsonObj){
             newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
             newSource.setAttribute("poster", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].poster));
             newSource.setAttribute("video", "video/mp4");
+            newSource.setAttribute("data-date", foundPictures[i].date);
+            newSource.setAttribute("data-price", foundPictures[i].price);
             newSource.setAttribute("alt", foundPictures[i].title + ", closeup view and launch video");
         //ELSE IF ITS A PHOTO
         } else {
@@ -168,6 +163,8 @@ function addPictures(jsonObj){
             newButton.appendChild(newImage);
             newImage.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].image));
             newImage.setAttribute("alt", foundPictures[i].title + ", closeup view");
+            newImage.setAttribute("data-date", foundPictures[i].date);
+            newImage.setAttribute("data-price", foundPictures[i].price);
         }
 
         let newDiv = document.createElement('div');
