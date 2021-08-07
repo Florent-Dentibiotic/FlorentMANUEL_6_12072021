@@ -408,10 +408,6 @@ body {
   border-radius: 5px;
   padding: 1em;
   width: 170px;
-  -webkit-box-sizing: border-box;
-  /* Pour les anciennes versions des navigateurs WebKit */
-  -moz-box-sizing: border-box;
-  /* Pour tous les navigateurs Gecko */
   box-sizing: border-box;
 }
 .classify button:hover {
@@ -529,7 +525,6 @@ body {
 .intro h1 {
   font-size: 64px;
   font-weight: 400;
-  line-height: 31, 25px;
   color: #D3573C;
   margin-bottom: 0;
 }
