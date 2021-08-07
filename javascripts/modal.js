@@ -7,7 +7,7 @@ const mediaDiv = document.querySelector('.media');
 const previousMedia = document.querySelector('.fa-chevron-left');
 const nextMedia = document.querySelector('.fa-chevron-right');
 
-function closeContactModal(){contactModal.style.display = "none";};
+function closeContactModal(){contactModal.style.display = "none";}
 
 openModal.addEventListener('click', function launchModal(){contactModal.style.display = "block";});
 quitModal.addEventListener('click', closeContactModal);
@@ -49,19 +49,19 @@ function openPhotosModal(){
     if(mediaDiv.firstChild.firstChild.localName == "video"){
         mediaDiv.firstChild.firstChild.setAttribute("controls", "");
     }
-};
+}
 
 function closePhotoModal(){
     photoModal.style.display = 'none';
-};
+}
 
 function launchPreviousMedia(){
     launchMedia(-1);
-};
+}
 
 function launchNextMedia(){
     launchMedia(1);
-};
+}
 
 function launchMedia(direction){
     if(mediaDiv.firstChild.firstChild.localName == "video"){
@@ -84,7 +84,7 @@ function launchMedia(direction){
     } else {
         photoModal.style.display = 'none';
     }
-};
+}
 
 function sendData(){
     let inputs = document.querySelectorAll("input");

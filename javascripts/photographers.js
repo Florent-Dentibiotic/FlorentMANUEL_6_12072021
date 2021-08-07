@@ -37,7 +37,7 @@ function radioBtnVisible(){
     options.forEach(element => element.classList.replace("d-none", "d-block"));
     thematicBreak.forEach(element => element.classList.replace("d-none", "d-block"));
     chevron.classList.replace('fa-chevron-down', 'fa-chevron-up');
-};
+}
 
 function radioBtnInvisible(){
     let optionsNotSelected = optionsArray.filter(element => element.attributes[2].value != "true");

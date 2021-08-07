@@ -1,3 +1,7 @@
+//DOM Elements
+const autors = document.querySelector(".autors");
+const newArticle = document.querySelector(".btn__secondary");
+
 // ONSCROLL BTN__SECONDARY VISIBLE
 const btnSecondary = document.querySelector('.btn__secondary');
 document.addEventListener('scroll', btnVisible);
