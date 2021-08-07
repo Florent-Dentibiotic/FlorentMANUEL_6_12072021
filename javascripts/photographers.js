@@ -102,7 +102,7 @@ function createIntro(jsonObj) {
         newA.setAttribute("href", ('index.html?' + element));
     });
     //PHOTOGRAPHER PORTRAIT
-    picture.setAttribute("src", ("./imgs/Sample Photos/Photographers ID Photos/" + thisPhotographe.portrait));
+    picture.setAttribute("src", ("./imgs/Sample_Photos/Photographers_ID_Photos/" + thisPhotographe.portrait));
     picture.setAttribute("alt", thisPhotographe.name);
 
     //CONTACT FORM NAME
@@ -149,8 +149,8 @@ function addPictures(jsonObj){
             newVideo.appendChild(newSource);
 
             //newVideo.setAttribute("controls", "");
-            newSource.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].video));
-            newSource.setAttribute("poster", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].poster));
+            newSource.setAttribute("src", ("./imgs/Sample_Photos/" + thisPhotographe.name.split(" ").join("_") + "/" + foundPictures[i].video));
+            newSource.setAttribute("poster", ("./imgs/Sample_Photos/" + thisPhotographe.name.split(" ").join("_") + "/" + foundPictures[i].poster));
             newSource.setAttribute("video", "video/mp4");
             newSource.setAttribute("data-date", foundPictures[i].date);
             newSource.setAttribute("data-price", foundPictures[i].price);
@@ -159,7 +159,7 @@ function addPictures(jsonObj){
         } else {
             let newImage = document.createElement('img');
             newButton.appendChild(newImage);
-            newImage.setAttribute("src", ("./imgs/Sample Photos/" + thisPhotographe.name + "/" + foundPictures[i].image));
+            newImage.setAttribute("src", ("./imgs/Sample_Photos/" + thisPhotographe.name.split(" ").join("_") + "/" + foundPictures[i].image));
             newImage.setAttribute("alt", foundPictures[i].title + ", closeup view");
             newImage.setAttribute("data-date", foundPictures[i].date);
             newImage.setAttribute("data-price", foundPictures[i].price);
