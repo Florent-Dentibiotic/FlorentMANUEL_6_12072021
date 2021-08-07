@@ -1,6 +1,12 @@
+// JSON REQUEST
+var requestJSON = 'FishEyeData.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestJSON);
+request.responseType = 'json';
+request.send();
+
 //DOM Elements
 const autors = document.querySelector(".autors");
-const newArticle = document.querySelector(".btn__secondary");
 
 // ONSCROLL BTN__SECONDARY VISIBLE
 const btnSecondary = document.querySelector('.btn__secondary');
