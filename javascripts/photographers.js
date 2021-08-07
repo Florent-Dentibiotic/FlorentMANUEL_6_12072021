@@ -32,13 +32,6 @@ classifyOptions.addEventListener('mouseout', radioBtnInvisible);
 classifyOptions.addEventListener('focusin', radioBtnVisible);
 //options[2].addEventListener('focusout', radioBtnInvisible);
 optionsArray.forEach(element => element.addEventListener('click', changeAriaSelectedValue));
-document.addEventListener('keydown', event => {
-    if(options[0].classList[0]=='d-block' && options[1].classList[0]=='d-block' && options[2].classList[0]=='d-block'){
-        if(event.code == "ArrowUp"){
-            options[0].focus();
-        }
-    }
-});
 
 function radioBtnVisible(){
     options.forEach(element => element.classList.replace("d-none", "d-block"));

@@ -28,7 +28,7 @@
 
             </article>
             <div class="contact">
-                <button class="btn__primary open__modal" alt="Contact Me">Contactez-moi</button>
+                <button class="btn__primary open__modal" aria-label="Contact Me">Contactez-moi</button>
             </div>
             <img class="intro__picture">
             <div class="contact__modal">
@@ -65,13 +65,13 @@
 
         <section class="classify">
             <h2>Trier par</h2>
-            <ul class="classify__options" aria-haspopup="true" aria-expanded="false" role=”button” aria-expanded="false" id="listbox" aria-activedescendant="popularity">
+            <ul class="classify__options" aria-haspopup="true" aria-expanded="false" role=”button” id="listbox" aria-activedescendant="popularity">
                 <i class="chevron fas fa-chevron-down"></i>
-                <button class="d-block options" tabindex="0" value="true" ><li id="popularity" >Popularité</li></button>
-                <hr class="d-none">
-                <button  class="d-none options" tabindex="0" value="false"><li id="date">Date</li></button>
-                <hr class="d-none">
-                <button  class="d-none options" tabindex="0" value="false"><li id="title">Titre</li></button>
+                <li><button class="d-block options" tabindex="0" value="true" >Popularité</button></li>
+                <li><hr class="d-none"></li>
+                <li><button  class="d-none options" tabindex="0" value="false">Date</button></li>
+                <li><hr class="d-none"></li>
+                <li><button  class="d-none options" tabindex="0" value="false">Titre</button></li>
 
             </ul>
         </section>
