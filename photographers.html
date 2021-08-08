@@ -24,9 +24,9 @@
     <main>
 
         <section class="intro">
-            <article class="presentation">
+            <div class="presentation">
 
-            </article>
+            </div>
             <div class="contact">
                 <button class="btn__primary open__modal" aria-label="Contact Me">Contactez-moi</button>
             </div>
@@ -34,7 +34,7 @@
             <div class="contact__modal">
                 <div class="contact__modal__box">
                     <div class="contact__modal__box__title">
-                        <h1></h1><i class="fas fa-times quit__modal"></i>
+                        <h1></h1><span class="fas fa-times quit__modal"></span>
                     </div>
                     <form method="post" class="form-contact">
                         <div class="form-contact">
@@ -65,12 +65,12 @@
 
         <section class="classify">
             <h2>Trier par</h2>
-            <ul class="classify__options" aria-haspopup="true" aria-expanded="false" id="listbox" aria-activedescendant="popularity">
-                <li id="popularity"><button class="d-block options" tabindex="0" value="true" >Popularité</button><i class="chevron fas fa-chevron-down"></i></li>
+            <ul class="classify__options" aria-haspopup="true" aria-expanded="false" role="listbox" id="listbox" aria-activedescendant="popularity">
+                <li role="option" id="popularity"><button class="d-block options" tabindex="0" value="true" >Popularité</button><span class="chevron fas fa-chevron-down"></span></li>
                 <li><hr class="d-none"></li>
-                <li><button  class="d-none options" tabindex="0" value="false">Date</button></li>
+                <li role="option" id="date"><button  class="d-none options" tabindex="0" value="false">Date</button></li>
                 <li><hr class="d-none"></li>
-                <li><button  class="d-none options" tabindex="0" value="false">Titre</button></li>
+                <li role="option" id="title"><button  class="d-none options" tabindex="0" value="false">Titre</button></li>
 
             </ul>
         </section>
@@ -85,9 +85,9 @@
 
         <section class="photos__modal">
             <div class="photos__modal__lightbox">
-                <i class="fas fa-times quit__photo__modal" aria-label="Close Dialog"></i>
-                <i class="fas fa-chevron-left" aria-label="Previous image"></i>
-                <i class="fas fa-chevron-right" aria-label="Next image"></i>
+                <span class="fas fa-times quit__photo__modal" aria-label="Close Dialog"></span>
+                <span class="fas fa-chevron-left" aria-label="Previous image"></span>
+                <span class="fas fa-chevron-right" aria-label="Next image"></span>
                 <div class="media">
                     
                 </div>

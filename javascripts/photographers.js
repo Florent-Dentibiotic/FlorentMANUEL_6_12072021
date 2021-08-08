@@ -135,7 +135,7 @@ function addPictures(jsonObj){
     //ADDING PHOTOS AND VIDEOS IN PHOTOGRAPHES PAGE
     for (var i = 0; i < foundPictures.length; i++) {
 
-        let newArticle = document.createElement('article');
+        let newArticle = document.createElement('div');
         photos.appendChild(newArticle);
         newArticle.classList.add('article');
         let newButton = document.createElement('button');
@@ -147,14 +147,16 @@ function addPictures(jsonObj){
             newButton.appendChild(newVideo);
             let newSource = document.createElement('source');
             newVideo.appendChild(newSource);
+            //let newAlt = document.createElement('p');
+            //newVideo.appendChild(newAlt);
 
             //newVideo.setAttribute("controls", "");
             newSource.setAttribute("src", ("./imgs/Sample_Photos/" + thisPhotographe.name.split(" ").join("_") + "/" + foundPictures[i].video));
-            newSource.setAttribute("poster", ("./imgs/Sample_Photos/" + thisPhotographe.name.split(" ").join("_") + "/" + foundPictures[i].poster));
-            newSource.setAttribute("video", "video/mp4");
+            newVideo.setAttribute("poster", ("./imgs/Sample_Photos/" + thisPhotographe.name.split(" ").join("_") + "/" + foundPictures[i].poster));
+            newSource.setAttribute("type", "video/mp4");
             newSource.setAttribute("data-date", foundPictures[i].date);
             newSource.setAttribute("data-price", foundPictures[i].price);
-            newSource.setAttribute("alt", foundPictures[i].title + ", closeup view and launch video");
+            //newAlt.innerHTML = foundPictures[i].title + ", closeup view and launch video";
         //ELSE IF ITS A PHOTO
         } else {
             let newImage = document.createElement('img');
@@ -207,7 +209,7 @@ function addAsideLikes(){
     likes__infos.appendChild(newP);
     let newPBis = document.createElement('h3');
     likes__infos.appendChild(newPBis);
-    newP.innerHTML = totalLikes + ' <i class="fas fa-heart"></i>';
+    newP.innerHTML = totalLikes + ' <span class="fas fa-heart"></span>';
     newPBis.textContent = photographPrice + '€ / jour';
 }
 
@@ -259,22 +261,23 @@ document.addEventListener('keydown', event => {
         if(contactModal.style.display == "block"){
             closeContactModal();
         }
-    } 
+    }
 });
 
 
 // PHOTO MODAL OPEN/QUIT/CHANGE MEDIA
 function openPhotosModal(){
-    if(mediaDiv.childNodes[0].firstChild != null && (mediaDiv.childNodes[0].firstChild.localName == "img" || mediaDiv.childNodes[0].firstChild.localName == "video")){
+    if(mediaDiv.firstChild.localName != undefined && (mediaDiv.firstChild.localName == "img" || mediaDiv.firstChild.localName == "video")){
         photoModal.firstElementChild.removeChild(photoModal.firstElementChild.lastElementChild);
     }
     photoModal.style.display = 'block';
-    mediaDiv.innerHTML = this.outerHTML;
+    mediaDiv.innerHTML = this.firstChild.outerHTML;
     let newH3 = document.createElement('h3');
     photoModal.firstElementChild.appendChild(newH3);
     newH3.textContent = this.parentElement.children[1].firstChild.innerHTML;
-    if(mediaDiv.firstChild.firstChild.localName == "video"){
-        mediaDiv.firstChild.firstChild.setAttribute("controls", "");
+    if(mediaDiv.firstChild.localName == "video"){
+        mediaDiv.firstChild.setAttribute("controls", "");
+        mediaDiv.firstChild.play();
     }
 }
 
@@ -291,26 +294,29 @@ function launchNextMedia(){
 }
 
 function launchMedia(direction){
-    if(mediaDiv.firstChild.firstChild.localName == "video"){
-        mediaDiv.firstChild.firstChild.removeAttribute("controls", "");
+    if(mediaDiv.firstChild.localName == "video"){
+        mediaDiv.firstChild.removeAttribute("controls", "");
     }
-    let mediaIndex = allMedias.findIndex(element => element.outerHTML == mediaDiv.innerHTML)
+    let mediaIndex = allMedias.findIndex(element => element.firstChild.outerHTML == mediaDiv.innerHTML)
     let nextMedia = mediaIndex + direction;
     if(nextMedia < allMedias.length && nextMedia > 0){
-        mediaDiv.innerHTML = allMedias[nextMedia].outerHTML;
+        mediaDiv.innerHTML = allMedias[nextMedia].firstChild.outerHTML;
         photoModal.firstElementChild.lastChild.textContent = allMedias[nextMedia].parentElement.children[1].firstChild.innerHTML;
-            if(mediaDiv.firstChild.firstChild.localName == "video"){
-                mediaDiv.firstChild.firstChild.setAttribute("controls", "");
+            if(mediaDiv.firstChild.localName == "video"){
+                mediaDiv.firstChild.setAttribute("controls", "");
+                mediaDiv.firstChild.play();
             }
     } else if(nextMedia >= 0 && nextMedia < allMedias.length){
-        mediaDiv.innerHTML = allMedias[nextMedia].outerHTML;
+        mediaDiv.innerHTML = allMedias[nextMedia].firstChild.outerHTML;
         photoModal.firstElementChild.lastChild.textContent = allMedias[nextMedia].parentElement.children[1].firstChild.innerHTML;
-            if(mediaDiv.firstChild.firstChild.localName == "video"){
-                mediaDiv.firstChild.firstChild.setAttribute("controls", "");
+            if(mediaDiv.firstChild.localName == "video"){
+                mediaDiv.firstChild.setAttribute("controls", "");
+                mediaDiv.firstChild.play();
             }
     } else {
-        if(mediaDiv.firstChild.firstChild.localName == "video"){
-            mediaDiv.firstChild.firstChild.setAttribute("controls", "");
+        if(mediaDiv.firstChild.localName == "video"){
+            mediaDiv.firstChild.setAttribute("controls", "");
+            mediaDiv.firstChild.play();
         }
     }
 }

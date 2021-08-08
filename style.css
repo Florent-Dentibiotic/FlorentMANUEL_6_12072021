@@ -389,7 +389,7 @@ body {
   z-index: 5;
   padding: 0;
 }
-.classify .classify__options i {
+.classify .classify__options .fas {
   position: absolute;
   left: 7.5em;
   top: 1em;
@@ -570,7 +570,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(480px, auto));
 }
-.photos article {
+.photos .article {
   max-width: 480px;
   text-align: center;
   display: flex;
@@ -578,7 +578,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.photos article .img-label {
+.photos .article .img-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -587,7 +587,7 @@ body {
   color: #901C1C;
   width: 440px;
 }
-.photos article .fas:hover {
+.photos .article .fas:hover {
   cursor: pointer;
 }
 .photos h2, .photos h3 {

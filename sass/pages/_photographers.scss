@@ -78,7 +78,7 @@
     grid-template-columns: 
     repeat(auto-fill,
     minmax(480px, auto));
-    article{
+    .article{
         max-width: 480px;
         text-align: center;
         display: flex;
