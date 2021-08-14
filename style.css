@@ -653,11 +653,11 @@ body {
     align-items: center;
     flex-wrap: wrap;
   }
-  .photos article {
+  .photos .article {
     max-width: 365px;
     margin: 1em;
   }
-  .photos article .img-label {
+  .photos .article .img-label {
     width: 335px;
     font-size: 14px;
   }
