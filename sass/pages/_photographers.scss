@@ -199,6 +199,9 @@
 
 @media screen and (max-width: 375px) {
     .intro{
+        .presentation{
+            max-width: 235px;
+        }
         article{
             max-width: 200px;
         }

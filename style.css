@@ -682,6 +682,9 @@ body {
   }
 }
 @media screen and (max-width: 375px) {
+  .intro .presentation {
+    max-width: 235px;
+  }
   .intro article {
     max-width: 200px;
   }
