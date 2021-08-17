@@ -32,6 +32,13 @@
         font-weight: 400;
         margin-top: 0;
     }
+    h2{
+        padding:3em;
+        text-align: center;
+        color: $black !important;
+        font-size: 50px;
+        font-weight: 700;
+    }
     .fas{
         color: $white;
         font-size: 64px;
@@ -66,6 +73,10 @@
             margin-left: 0;
         }
         h1{
+            font-size: 36px;
+        }
+        h2{
+            padding:1em;
             font-size: 36px;
         }
         .fas{

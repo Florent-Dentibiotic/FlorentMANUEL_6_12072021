@@ -39,9 +39,18 @@ const picture = document.querySelector('.intro__picture');
 const contactTitle = document.querySelector('.contact__modal__box__title');
 const photos = document.querySelector('.photos');
 const likes__infos = document.querySelector('.likes');
+const contactForm = document.querySelector('.form-contact');
+const firstName = document.querySelector("#first-name");
+const lastName = document.querySelector("#last-name");
+const email = document.querySelector("#email");
 let allMedias = [];
 let totalLikes = 0;
 let photographPrice = 0;
+
+// REGEX
+const regexFirst = /^[a-zA-Z]+[a-zA-Z-]?[a-zA-Z]+$/;
+const regexLast = /^[a-zA-Z]+[a-zA-Z'-]?[a-zA-Z]+$/;
+const regexEmail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/;
 
 // List elements for classification
 const classifyOptions = document.querySelector('.classify__options');
@@ -326,6 +335,20 @@ const submitForm = document.querySelector('#submit-form');
 submitForm.addEventListener('click', sendData);
 
 function sendData() {
-    let inputs = document.querySelectorAll("input");
-    inputs.forEach(element => console.log(element.value));
+    let firstNameTest = regexFirst.test(firstName.value);
+    let lastNameTest = regexLast.test(lastName.value);
+    let emailTest = regexEmail.test(email.value);
+    if(firstNameTest == true && lastNameTest == true && emailTest == true){
+        let inputs = document.querySelectorAll("input");
+        let contactFields = {
+            "first-name": inputs[0].value, 
+            "last-name": inputs[1].value, 
+            "email": inputs[2].value, 
+            "message": inputs[3].value };
+        console.log(contactFields);
+        inputs.forEach(element => element.value = "");
+        contactForm.innerHTML = `<h2>Votre message sera traité rapidement. Merci pour votre attention.</h2>`;
+        setTimeout(function(){ closeContactModal(); }, 2000);
+        
+    }
 }

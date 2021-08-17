@@ -184,6 +184,13 @@ body {
   font-weight: 400;
   margin-top: 0;
 }
+.contact__modal h2 {
+  padding: 3em;
+  text-align: center;
+  color: #000 !important;
+  font-size: 50px;
+  font-weight: 700;
+}
 .contact__modal .fas {
   color: #fff;
   font-size: 64px;
@@ -216,6 +223,10 @@ body {
     margin-left: 0;
   }
   .contact__modal h1 {
+    font-size: 36px;
+  }
+  .contact__modal h2 {
+    padding: 1em;
     font-size: 36px;
   }
   .contact__modal .fas {
