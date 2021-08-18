@@ -51,7 +51,7 @@ let photographPrice = 0;
 // REGEX
 const regexFirst = /^[a-zA-Z]+[a-zA-Z-]?[a-zA-Z]+$/;
 const regexLast = /^[a-zA-Z]+[a-zA-Z'-]?[a-zA-Z]+$/;
-const regexEmail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/;
+const regexEmail = /^[a-zA-Z0-9]+([_|\.|-]{1}[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([_|\.|-]­{1}[a-zA-Z0-9]+)*[\.]{1}[a-zA-Z]{2,6}$/;
 
 // List elements for classification
 const classifyOptions = document.querySelector('.classify__options');
