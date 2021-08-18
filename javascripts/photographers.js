@@ -43,6 +43,7 @@ const contactForm = document.querySelector('.form-contact');
 const firstName = document.querySelector("#first-name");
 const lastName = document.querySelector("#last-name");
 const email = document.querySelector("#email");
+const message = document.querySelector('#message');
 let allMedias = [];
 let totalLikes = 0;
 let photographPrice = 0;
@@ -338,7 +339,7 @@ function sendData() {
     let firstNameTest = regexFirst.test(firstName.value);
     let lastNameTest = regexLast.test(lastName.value);
     let emailTest = regexEmail.test(email.value);
-    if(firstNameTest == true && lastNameTest == true && emailTest == true){
+    if(firstNameTest == true && lastNameTest == true && emailTest == true && message.value != ""){
         let inputs = document.querySelectorAll("input");
         let contactFields = {
             "first-name": inputs[0].value, 
