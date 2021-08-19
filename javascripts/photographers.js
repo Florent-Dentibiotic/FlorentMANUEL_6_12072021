@@ -44,6 +44,7 @@ const firstName = document.querySelector("#first-name");
 const lastName = document.querySelector("#last-name");
 const email = document.querySelector("#email");
 const message = document.querySelector('#message');
+const formContact = document.getElementById('form-contact');
 let allMedias = [];
 let totalLikes = 0;
 let photographPrice = 0;
@@ -67,6 +68,10 @@ classifyOptions.addEventListener('mouseout', radioBtnInvisible);
 classifyOptions.addEventListener('focusin', radioBtnVisible);
 //options[2].addEventListener('focusout', radioBtnInvisible);
 optionsArray.forEach(element => element.addEventListener('click', changeAriaSelectedValue));
+formContact.addEventListener('submit', function(e){
+    e.preventDefault();
+    sendData()
+})
 
 function radioBtnVisible() {
     options.forEach(element => element.classList.replace("d-none", "d-block"));
@@ -330,10 +335,6 @@ function launchMedia(direction) {
         }
     }
 }
-
-// **** CONTACT MODAL DATAS ****
-const submitForm = document.querySelector('#submit-form');
-submitForm.addEventListener('click', sendData);
 
 function sendData() {
     let firstNameTest = regexFirst.test(firstName.value);
